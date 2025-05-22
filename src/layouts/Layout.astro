@@ -1,3 +1,7 @@
+---
+import '../assets/styles/main.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +9,24 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>KRAZE</title>
 	</head>
 	<body>
-		<slot />
+    <header>
+      <div class="header">
+        <h2>projet sur mesure</h2>
+        <h1 class="logo">Kraze</h1>
+        <h2>panier</h2>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="footer">
+        <h2>mentions légales</h2>
+        <h2>A propos</h2>
+      </div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,27 @@
+---
+import {getProduct} from '../lib/api/produit.js'
+
+import {getProducts} from '../lib/./api/produits.js';
+
+const {slug} = Astro.params;
+
+const produit = await getProduct(slug);
+
+const produit_couleurs = produit.produit_couleurs
+
+export async function getStaticPaths() {
+  const produits = await getProducts();
+  const slugs = produits.map(produit => produit.slug);
+
+  return slugs.map(slug => ({
+    params: {slug}
+  }));
+}
+
+---
+
+<h1>{produit.name}</h1>
+
+
+<p>{produit.description}</p>
+<p>{produit.price}€</p>

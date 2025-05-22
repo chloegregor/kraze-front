@@ -1,0 +1,49 @@
+
+.swiper {
+
+  width: 60em;
+  height:100%;
+}
+
+.content{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #8940f0;
+
+}
+
+.content img{
+  max-width: 100%;
+  height: auto; /* ← préserve les proportions */
+  display: block;
+  object-fit: contain;
+}
+
+.detailsproduits{
+  display:flex;
+  justify-content: space-between;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+ display: none;
+}
+
+.custom-next{
+ right: 60px!important;
+ z-index: 10;
+}
+
+.custom-prev{
+  left: 60px!important;
+  z-index: 10;
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg {
+  pointer-events: none; /* pour que le clic passe à travers le SVG vers le bouton */
+}
