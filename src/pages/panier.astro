@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ShowCart from '../components/ShowCart';
+
+---
+
+<Layout>
+  <div class="h-[calc(100vh-8em)]">
+    <div class="lg:mx-[5em] flex flex-col h-[100%] items-center mt-[2em]">
+      <h1 class="my-[1em]">PANIER</h1>
+      <div class="lg:w-[60%] flex flex-col">
+        <ShowCart client:only/>
+      </div>
+    </div>
+  </div>
+</Layout>

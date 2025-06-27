@@ -1,5 +1,9 @@
 ---
-import '../assets/styles/main.css';
+import '../styles/global.css';
+import CartBadge from '../components/CartBadge';
+import ActiveLink from '../components/ActiveLink'
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -9,24 +13,44 @@ import '../assets/styles/main.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>KRAZE</title>
 	</head>
 	<body>
-    <header>
-      <div class="header">
-        <h2>projet sur mesure</h2>
-        <h1 class="logo">Kraze</h1>
-        <h2>panier</h2>
-      </div>
-    </header>
 
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <div class="footer">
-        <h2>mentions légales</h2>
-        <h2>A propos</h2>
-      </div>
+      <header>
+        <div class="header">
+          <div class="nav">
+
+              <ActiveLink client:load href="/projet-custom" position="center" >
+              Custom</ActiveLink>
+
+              <a href="/" class="logo">
+                <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Logo" class="lg:w-[20em] w-[8em] mt-[1em] " />
+              </a>
+              <div class="flex gap-1">
+                <ActiveLink client:load href="/panier" position="center">Panier</ActiveLink>
+                <CartBadge client:only />
+
+              </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+      <footer>
+        <div class="footer">
+          <div class="nav">
+            <a class:list={["self-end", currentPath === "/mentions-legales" ? "orange-underline" : undefined]}>Mentions légales</a>
+
+            <ActiveLink client:load href="/a-propos" position="end" >
+              À propos
+            </ActiveLink>
+        </div>
+        </div>
+      </footer>
+
 	</body>
 </html>

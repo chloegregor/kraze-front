@@ -7,9 +7,7 @@ export async function getProducts() {
     query: {
       fields: ['name', 'price', 'description', 'slug'],
       populate: {
-        photo: {
-          fields: ['url'],
-        },
+
         composition: {
           fields: ['pourcentage'],
           populate: {
@@ -22,7 +20,10 @@ export async function getProducts() {
           populate: {
             couleur: {
               populate: ['hex'],
-            }
+            },
+            photo: {
+              fields: ['url'],
+            },
           }
         }
       },

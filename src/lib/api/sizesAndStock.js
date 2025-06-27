@@ -1,30 +1,14 @@
 import fetchApi from '../strapi.js';
 
-export async function getProduct(slug) {
+export async function getSizesAndStock(slug) {
   const produit = await fetchApi({
     endpoint: `produits/${slug}`,
     wrappedByKey: 'data',
     query: {
-      fields: ['name', 'price', 'description', 'slug', 'entretien'],
       populate: {
 
-        composition: {
-          fields: ['pourcentage'],
-          populate: {
-            matiere: {
-              fields: ['type'],
-            },
-          },
-        },
-        
         produit_couleurs:{
           populate: {
-            couleur: {
-              populate: ['hex'],
-            },
-            photo: {
-              fields: ['url'],
-            },
             produit_couleur_sizes:{
               fields: ['taille', 'stock', 'reserve'],
               populate: {

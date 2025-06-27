@@ -1,23 +1,37 @@
 
-.swiper {
-
-  width: 60em;
-  height:100%;
-}
 
 .content{
-  width: 60%;
+  min-width: 28em;
   display: flex;
   flex-direction: column;
   border: 1px solid #8940f0;
-
+  height: 80%;
+  padding:1em
 }
 
 .content img{
-  max-width: 100%;
-  height: auto; /* ← préserve les proportions */
-  display: block;
+  width: 430px;
+  height: 480px;
   object-fit: contain;
+  align-self: center;
+}
+
+@media (max-width: 600px) {
+  .content {
+    min-width: 100%;
+    padding: 0.5em;
+    height:23em
+  }
+  .content img {
+    margin-top:1em;
+    width: 250px;
+    height: 250px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important; /* Cacher les flèches sur mobile */
+  }
+
 }
 
 .detailsproduits{
@@ -33,17 +47,42 @@
  display: none;
 }
 
-.custom-next{
- right: 60px!important;
- z-index: 10;
-}
 
-.custom-prev{
-  left: 60px!important;
-  z-index: 10;
-}
 
 .swiper-button-next svg,
 .swiper-button-prev svg {
   pointer-events: none; /* pour que le clic passe à travers le SVG vers le bouton */
+}
+
+
+.swiper-link{
+  display: flex;
+  flex-direction: column;
+  text-decoration:none;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#fleche-gauche{
+  position: absolute;
+  top: 95%;
+  left:48%
+}
+*#fleche-droite{
+  position: absolute;
+  top: 95%;
+  right: 48%;
+}
+
+@keyframes spin-once {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-once {
+  animation: spin-once 0.3s linear;
 }

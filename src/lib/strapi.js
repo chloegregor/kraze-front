@@ -13,7 +13,11 @@ export default async function fetchApi({
   const queryString = qs.stringify(query, { encodeValuesOnly: true });
   console.log('queryString', queryString);
 
-  const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}?${queryString}`);
+
+  const url =
+  typeof window !== 'undefined' ?
+    new URL(`${import.meta.env.PUBLIC_STRAPI_URL}/api/${endpoint}?${queryString}`)
+    : new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}?${queryString}`);
 
 
   const res = await fetch(url.toString());

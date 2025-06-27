@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {getProduct} from '../../lib/api/produit.js'
+import {getProducts} from '../../lib/./api/produits.js';
+import fetchApi from '../../lib/strapi.js';
+import GuideSection from '../../components/guideSection.jsx';
+import CartIsland from '../../components/ReactIsland.astro';
+import ColorsSwiper from '../../components/ColorsSwiper';
+import ReactRoot from '../../components/ReactRoot.jsx';
+
+const {slug} = Astro.params;
+
+const produit = await getProduct(slug);
+
+const produitCouleurs = produit.produit_couleurs;
+
+
+const sizes = await fetchApi({
+  endpoint: 'sizes',
+  query: {
+    fields: ['symbole', 'tour_de_taille', 'tour_de_poitrine']
+  },
+   wrappedByKey: 'data'
+})
+
+const composition = produit.composition;
+
+const entretien = produit.entretien;
+
+const livraison = await fetchApi({
+  endpoint:"livraison",
+  query: {
+    fields: ['policy']
+  },
+  wrappedByKey: 'data'
+})
+
+
+export async function getStaticPaths() {
+  const produits = await getProducts();
+  const slugs = produits.map(produit => produit.slug);
+
+  return slugs.map(slug => ({
+    params: {slug}
+  }));
+}
+
+
+---
+<Layout>
+    <h1 class="my-[2em] text-center">{produit.name.toUpperCase()}</h1>
+    <div class="">
+
+    <ColorsSwiper client:load produits={produitCouleurs} description={produit.description} price={produit.price} slug={slug} />
+
+
+  <div class="flex justify-center mt-[2em]">
+    <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
+      <div class="flex flex-col items-center">
+        <GuideSection client:load sizes={sizes} composition={composition} entretien={entretien} livraison={livraison}/>
+      </div>
+  </div>
+</div>
+</Layout>

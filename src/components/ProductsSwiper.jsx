@@ -1,28 +1,62 @@
 
 // ProductCarousel.jsx
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Keyboard } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
+import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
+import {useState, useEffect} from 'react';
+import {getProducts} from '../lib/api/produits.js';
+
 
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { MoveRight, MoveLeft } from 'lucide-react';
 
 
   export default function ProductsSwiper({ produits }) {
+
+
+{
+  /*
+    const [produitsDynamiques, setProduitsDynamiques] = useState(produits);
+
+    useEffect(() => {
+      const fetchProduct = async () => {
+        const produits = await getProducts();
+        console.log('Produits récupérés:', produits);
+        setProduitsDynamiques(produits);
+      };
+      fetchProduct();
+    }, []);
+*/
+}
+
+
+
+
+
     return (
 
       <Swiper
-        modules={[Navigation, Pagination, Keyboard]}
+        modules={[EffectFade, Navigation, Pagination, Keyboard]}
         spaceBetween={50}
+        effect={'fade'}
+        fadeEffect={{ crossFade: true }}
         slidesPerView={1}
         navigation= {{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+        onInit={(swiper) => {
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
         keyboard={{ enabled: true }}
         loop={true}
       >
+
         {produits.map((produit) => (
-          <SwiperSlide key={produit.id}
-            style={{
+
+          <SwiperSlide key={produit.id}>
+            <div style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -30,12 +64,19 @@ import { MoveRight, MoveLeft } from 'lucide-react';
               textAlign: 'center',
 
             }}>
-            <div className="content">
-              <img src={`${import.meta.env.STRAPI_URL}${produit.photo[0].url}`} alt={produit.name} />
-              <span className="detailsproduits">
-                <h2>{produit.name}</h2>
-                <p>{produit.produit_couleurs.length} coloris </p>
-              </span>
+
+
+
+              <div className="content">
+
+                <a href={`produits/${produit.slug}`} className="swiper-link">
+                  <img src={`${OptimizeByCloudinary(produit.produit_couleurs[0].photo[0].url)}`} alt={produit.name} />
+                  <div className="detailsproduits m-2">
+                    <p>{produit.name}</p>
+                    <p>{produit.produit_couleurs.length} coloris </p>
+                  </div>
+                </a>
+              </div>
             </div>
           </SwiperSlide>
         ))}
