@@ -1,10 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import {getPieceUniques} from '../../lib/api/piece-uniques.js';
+import ProductCart from '../../components/ProductCart';
 
 const pieceUniques = await getPieceUniques();
+console.log("voila ce qu'il y a dans la vue", pieceUniques);
 ---
 
 <Layout>
+  <div class="fullscreen">
+    <div class="container">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {pieceUniques.map(piece => (
+          <ProductCart piece_unique={piece} />
+        ))}
+      </div>
+    </div>
 
+  </div>
 </Layout>

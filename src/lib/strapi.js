@@ -22,6 +22,7 @@ export default async function fetchApi({
 
   const res = await fetch(url.toString());
   let data = await res.json();
+  console.log('📦 Raw response from Strapi:', JSON.stringify(data, null, 2));
 
   if (wrappedByKey) {
     data = data[wrappedByKey];
