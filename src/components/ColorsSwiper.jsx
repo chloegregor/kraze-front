@@ -85,7 +85,7 @@
 
     return (
       <>
-        <div className="lg:h-[calc(100vh-13em)] ">
+        <div className="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
 
           <Swiper
             modules={[EffectFade, Navigation, Pagination, Keyboard]}
