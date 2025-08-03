@@ -2,9 +2,9 @@ import fetchApi from '../strapi.js';
 
 import {updateReserve} from './updateReserve.js';
 
-export async function FetchStockAndPrice(ducumentId) {
+export async function FetchStockAndPrice(documentId) {
   const stockAndPrice = await fetchApi({
-    endpoint: `produit-couleur-sizes/${ducumentId}`,
+    endpoint: `produit-couleur-sizes/${documentId}`,
     wrappedByKey: 'data',
     query: {
       fields: ['stock', 'reserve', 'taille'],
