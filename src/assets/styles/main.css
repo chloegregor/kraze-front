@@ -101,11 +101,7 @@ body{
 a{
   height:fit-content
 }
-.nav{
-  display: flex;
-  justify-content: space-between;
-  height:100%
-}
+
 
 .footer{
   background-color: #ffffff;

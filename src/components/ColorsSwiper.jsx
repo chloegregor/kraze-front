@@ -179,6 +179,7 @@
                       product: produitDynamique[selectedIndex].nom,
                       size: taillecliquée.taille,
                       price: price,
+                      type: 'produit',
 
                     }
                     setChosenItem(structuredData);

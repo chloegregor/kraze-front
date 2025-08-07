@@ -12,8 +12,9 @@ console.log("voila ce qu'coucou thomas,  y a dans la vue", produits);
 
 
 <Layout>
-  <div class=" fullscreen flex flex-col  ">
-      <div class="lg:w-[50em] w-[100%] m-auto mt-[2em] lg:mt-[auto]">
+  <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">CORSETS & BUSTIERS</h1>
+  <div class="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
+      <div class="lg:w-[50em] w-[100%] m-auto">
         <ProductsSwiper client:load produits={produits} />
       </div>
   </div>
