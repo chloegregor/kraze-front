@@ -3,7 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import {getPieceUniques} from '../../lib/api/piece-uniques.js';
 import ProductCart from '../../components/ProductCart';
 
-const pieceUniques = await getPieceUniques();
+const toutesLespieceUniques = await getPieceUniques();
+
+const pieceUniques = toutesLespieceUniques.filter(piece => (piece.stock - piece.reserved) > 0);
 console.log("voila ce qu'il y a dans la vue", pieceUniques);
 ---
 
@@ -12,11 +14,15 @@ console.log("voila ce qu'il y a dans la vue", pieceUniques);
 
   <div class="fullscreen">
     <div class="container mt-[auto]">
-      <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {pieceUniques.map(piece => (
-          <ProductCart piece_unique={piece} />
-        ))}
-      </div>
+      {pieceUniques.length > 0 ?
+        <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+          pieceUniques.map(piece => (
+            <ProductCart piece_unique={piece} />
+          ))
+
+        </div>
+      : <p class="text-center lg:mt-[1em]">Aucune pièce unique disponible pour le moment.</p>}
     </div>
 
   </div>

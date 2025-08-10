@@ -74,7 +74,7 @@ export async function StockAndPrice(cart){
     }
     if ((product.stock - product.reserve) < item.quantity) {
       errors.push({
-        message: `Le stock pour ${product.produit_couleur.nom} (${product.taille}) est insuffisant. Stock disponible: ${(product.stock - product.reserve)}.`,
+        message: `Le stock pour ${item.type === 'produit' ? `${product.produit_couleur.nom} (${product.taille})` :product.titre}  est insuffisant. Stock disponible: ${(product.stock - product.reserve)}.`,
         item: item
       })
       continue;

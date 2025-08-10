@@ -63,6 +63,7 @@ export  async function POST({ request }){
           name: item.name,
           taille: item.taille,
           quantity: item.quantity,
+          type: item.type
         }))),
       },
       customer_creation: 'always',
