@@ -1,11 +1,13 @@
 ---
+export const prerender = false
 import Layout from '../../layouts/Layout.astro';
 import {getPieceUniques} from '../../lib/api/piece-uniques.js';
-import ProductCart from '../../components/ProductCart';
+import ProductsGrid from '../../components/ProductsGrid';
+
 
 const toutesLespieceUniques = await getPieceUniques();
 
-const pieceUniques = toutesLespieceUniques.filter(piece => (piece.stock - piece.reserved) > 0);
+const pieceUniques = toutesLespieceUniques.filter(piece => (piece.stock - piece.reserve) > 0);
 console.log("voila ce qu'il y a dans la vue", pieceUniques);
 ---
 
@@ -13,16 +15,8 @@ console.log("voila ce qu'il y a dans la vue", pieceUniques);
     <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">PIECES UNIQUES</h1>
 
   <div class="fullscreen">
-    <div class="container mt-[auto]">
-      {pieceUniques.length > 0 ?
-        <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-          pieceUniques.map(piece => (
-            <ProductCart piece_unique={piece} />
-          ))
-
-        </div>
-      : <p class="text-center lg:mt-[1em]">Aucune pièce unique disponible pour le moment.</p>}
+    <div class="">
+      <ProductsGrid client:load pieceUniques={pieceUniques} type="piece-unique" />
     </div>
 
   </div>

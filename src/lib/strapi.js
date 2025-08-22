@@ -19,11 +19,9 @@ export default async function fetchApi({
     new URL(`${import.meta.env.PUBLIC_STRAPI_URL}/api/${endpoint}?${queryString}`)
     : new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}?${queryString}`);
 
-  console.log('Fetching URL:', url.toString());
-  
+
   const res = await fetch(url.toString());
   let data = await res.json();
-  console.log('📦 Raw response from Strapi:', JSON.stringify(data, null, 2));
 
   if (wrappedByKey) {
     data = data[wrappedByKey];
