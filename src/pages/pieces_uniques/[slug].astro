@@ -4,6 +4,18 @@ import {getPieceUnique} from '../../lib/api/piece-unique.js';
 import {getPieceUniques} from '../../lib/api/piece-uniques.js';
 import PieceSwiper from '../../components/PieceSwiper.jsx';
 import AddButton from '../../components/AddButton.jsx';
+import fetchApi from '../../lib/strapi.js';
+import DrawerText from '../../components/drawerText';
+
+
+const livraison = await fetchApi({
+  endpoint:"livraison",
+  query: {
+    fields: ['policy']
+  },
+  wrappedByKey: 'data'
+})
+
 
 const {slug} = Astro.params;
 
@@ -39,7 +51,7 @@ console.log("Ajout au panier:", structuredData);
   </div>
   <div class="flex justify-center mt-[1em]">
           <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
-            <p class=" text-center last-center">{piece.description} Envie d’un corset unique, brodé, ou dans un coloris spécifique ? <a href="/projet-custom" class="underline underline-offset-4 ">Contactez-nous</a>, nous vous ferons un devis !</p>
+            <p class=" text-center last-center">{piece.description}
             <p class=" text-[1.6em]">{piece.price} €</p>
 
             {
@@ -48,6 +60,11 @@ console.log("Ajout au panier:", structuredData);
                 :<p class="text-red-500">Cette pièce unique n'est plus disponible.</p>
 
             }
+            <div class="text-center">
+          <DrawerText client:load title="LIVRAISON">
+            <p class="last-center">{livraison.policy}</p>
+          </DrawerText>
+          </div>
           </div>
         </div>
 
