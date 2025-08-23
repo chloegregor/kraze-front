@@ -11,6 +11,8 @@ const stripe = new Stripe(import.meta.env.SECRET_STRIPE);
 
 export  async function POST({ request }){
   try {
+    console.log("Cart reçu dans /api/checkout:", request);
+
   const clientCart = await request.json();
   if (!clientCart || !Array.isArray(clientCart)) {
     return new Response(JSON.stringify({ error: 'Invalid cart data' }), {
@@ -61,6 +63,7 @@ export  async function POST({ request }){
           name: item.name,
           taille: item.taille,
           quantity: item.quantity,
+          type: item.type
         }))),
       },
       customer_creation: 'always',

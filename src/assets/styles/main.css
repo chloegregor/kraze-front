@@ -78,6 +78,10 @@ body{
   border: 2px solid #ffaa4d;
 }
 
+.violet-border{
+  border: 1px solid #8940f0;
+}
+
 .logo{
   position:absolute;
   left:50%;
@@ -97,11 +101,7 @@ body{
 a{
   height:fit-content
 }
-.nav{
-  display: flex;
-  justify-content: space-between;
-  height:100%
-}
+
 
 .footer{
   background-color: #ffffff;

@@ -1,13 +1,17 @@
 
-export async function updateReserve(documentId, newReserve) {
+export async function updateReserveProduct(documentId, newReserve, type) {
 
-  console.log('updateReserve called with:', { documentId, newReserve });
+  console.log('updateReserve called with:', { documentId, newReserve, type });
 
-  if (!documentId || !newReserve) {
+  if (!documentId || !newReserve || !type) {
     throw new Error('Document ID and quantity are required');
   }
+  if (type !== 'produit' && type !== 'piece-unique') {
+    throw new Error('Type must be either "produit" or "piece-unique"');
+  }
+  const endpoint = type === 'produit' ? 'produit-couleur-sizes' : 'pieces-uniques';
 
-  const url = new URL(`${import.meta.env.STRAPI_URL}/api/produit-couleur-sizes/${documentId}`);
+  const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}/${documentId}`);
 
   const res = await fetch(url.toString(), {
     method: 'PUT',

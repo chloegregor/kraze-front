@@ -20,13 +20,16 @@ const currentPath = Astro.url.pathname;
 
       <header>
         <div class="header">
-          <div class="nav">
-
-              <ActiveLink client:load href="/projet-custom" position="center" >
-              Custom</ActiveLink>
+          <div class="h-[100%] flex place-content-between">
+              <div class=" flex lg:h-[100%] lg:w-[30%] w-[65%] lg:gap-[10em] place-content-between lg:place-content-start">
+                <ActiveLink client:load href="/projet-custom" position="center" >
+                Custom</ActiveLink>
+                <ActiveLink client:load href="/pieces_uniques" position="center" >
+                Pièces Uniques</ActiveLink>
+              </div>
 
               <a href="/" class="logo">
-                <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Logo" class="lg:w-[20em] w-[8em] mt-[1em] " />
+                <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Logo" class="lg:w-[20em] w-[8em] " />
               </a>
               <div class="flex gap-1">
                 <ActiveLink client:load href="/panier" position="center">Panier</ActiveLink>
@@ -42,7 +45,7 @@ const currentPath = Astro.url.pathname;
       </main>
       <footer>
         <div class="footer">
-          <div class="nav">
+          <div class="h-[100%] flex place-content-between">
             <a class:list={["self-end", currentPath === "/mentions-legales" ? "orange-underline" : undefined]}>Mentions légales</a>
 
             <ActiveLink client:load href="/a-propos" position="end" >

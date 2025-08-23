@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {getPage} from '../lib/api/page.js';
+import OptimizeByCloudinary from '../lib/OptmizeByCloudinary.js';
 
 const page = await getPage('a-propos');
 
@@ -10,9 +11,9 @@ const page = await getPage('a-propos');
 <Layout>
 <div class="fullscreen">
   <div class="lg:mx-[5em] flex flex-col h-[100%] items-center gap-[2em] lg:gap-[0em]">
-    <h1 class="mt-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
+    <h1 class="lg:mt-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
     <div class="flex lg:flex-row flex-col mt-auto items-center">
-      <img src=`${import.meta.env.STRAPI_URL}${page.content[1].photo.url}` class="lg:max-w-[50%] lg:mb-[0em] mb-[2em]"/>
+      <img src=`${OptimizeByCloudinary(page.content[1].photo.url)}` class="lg:w-[50%] lg:mb-[0em] mb-[2em]"/>
       <span class="lg:w-[50%] flex flex-col items-center lg:ml-[5em] lg:pl-[5em] lg:pr-[8em]">
         <h2 class="mb-[1em]">{page.content[1].titre}</h2>
         <p class="break-words text-center last-center">{page.content[1].texte}</p>
@@ -29,7 +30,7 @@ const page = await getPage('a-propos');
       <h2 class="mb-[1em]">{page.content[2].titre}</h2>
       <p class="break-words text-center last-center">{page.content[2].texte}</p>
   </span>
-    <img src=`${import.meta.env.STRAPI_URL}${page.content[2].photo.url}` class="lg:max-w-[50%] my-[2em] lg:my-[0em]"/>
+    <img src=`${OptimizeByCloudinary(page.content[2].photo.url)}` class="lg:w-[50%] my-[2em] lg:my-[0em]"/>
 </div>
 <div class="flex justify-center lg:mt-[8em] mt-[3em] w-[100%]">
   <p class="lg:w-[35%] text-center last-center">Envie d’un corset unique, brodé, ou dans un coloris spécifique ? <a href="/projet-custom" class="orange-underline">contactez-nous</a>, nous vous ferons un devis !</p>
