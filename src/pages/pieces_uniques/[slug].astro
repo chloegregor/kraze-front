@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {getPieceUnique} from '../../lib/api/piece-unique.js';
+import {getPieceUniques} from '../../lib/api/piece-uniques.js';
+import PieceSwiper from '../../components/PieceSwiper.jsx';
+import AddButton from '../../components/AddButton.jsx';
+import fetchApi from '../../lib/strapi.js';
+import DrawerText from '../../components/drawerText';
+
+
+const livraison = await fetchApi({
+  endpoint:"livraison",
+  query: {
+    fields: ['policy']
+  },
+  wrappedByKey: 'data'
+})
+
+
+const {slug} = Astro.params;
+
+export async function getStaticPaths(){
+  const pieceuniques = await getPieceUniques();
+  const slugs = pieceuniques.map(piece => piece.slug);
+  return slugs.map(slug => ({
+    params: {slug}
+  }));
+}
+
+const piece = await getPieceUnique(slug);
+console.log("voila ce qu'il y a dans la vue", piece.documentId);
+
+const structuredData = {
+  documentId: piece.documentId,
+  product: piece.titre.toUpperCase(),
+  taille: "TAILLE UNIQUE",
+  price: piece.price,
+  type: 'piece-unique',
+
+}
+console.log("Ajout au panier:", structuredData);
+
+---
+
+<Layout>
+    <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">{piece.titre.toUpperCase()}</h1>
+    <div class="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
+      <div class="lg:w-[50em] w-[100%] m-auto">
+        <PieceSwiper client:load piece={piece} />
+      </div>
+  </div>
+  <div class="flex justify-center mt-[1em]">
+          <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
+            <p class=" text-center last-center">{piece.description}
+            <p class=" text-[1.6em]">{piece.price} €</p>
+
+            {
+              piece.stock - piece.reserve > 0
+                ? <AddButton client:load product={structuredData} />
+                :<p class="text-red-500">Cette pièce unique n'est plus disponible.</p>
+
+            }
+            <div class="text-center">
+          <DrawerText client:load title="LIVRAISON">
+            <p class="last-center">{livraison.policy}</p>
+          </DrawerText>
+          </div>
+          </div>
+        </div>
+
+</Layout>

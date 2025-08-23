@@ -85,7 +85,7 @@
 
     return (
       <>
-        <div className="lg:h-[calc(100vh-13em)] ">
+        <div className="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
 
           <Swiper
             modules={[EffectFade, Navigation, Pagination, Keyboard]}
@@ -179,6 +179,7 @@
                       product: produitDynamique[selectedIndex].nom,
                       size: taillecliquée.taille,
                       price: price,
+                      type: 'produit',
 
                     }
                     setChosenItem(structuredData);

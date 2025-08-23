@@ -21,7 +21,6 @@ export default async function postStrapi({
 
   let data = await res.json();
 
-  console.log('postStrapi data', data);
 
   if (wrappedByKey) {
     data = data[wrappedByKey];

@@ -4,6 +4,7 @@ import {getProducts} from '../lib/./api/produits.js';
 import ProductsSwiper from '../components/ProductsSwiper.jsx';
 
 const produits = await getProducts();
+console.log("voila ce qu'il,  y a dans la vue", produits);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -11,8 +12,9 @@ const produits = await getProducts();
 
 
 <Layout>
-  <div class=" fullscreen flex flex-col  ">
-      <div class="lg:w-[50em] w-[100%] m-auto mt-[2em] lg:mt-[7em]">
+  <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">CORSETS & BUSTIERS</h1>
+  <div class="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
+      <div class="lg:w-[50em] w-[100%] m-auto">
         <ProductsSwiper client:load produits={produits} />
       </div>
   </div>

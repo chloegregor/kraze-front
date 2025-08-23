@@ -112,7 +112,7 @@ export default function ShowCart() {
       )}
 
       {errorMessage && (
-        <div className="text-red-500 text-center">{errorMessage}</div>
+        <div className="text-red-500 text-center mt-[1em]">{errorMessage}</div>
       )}
     </>
   );
