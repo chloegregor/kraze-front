@@ -6,14 +6,17 @@ export default function ProductsGrid( {pieceUniques} ) {
 
   const tags = Array.from(new Set(pieceUniques.flatMap(piece => piece.tags.map(tag => tag.tag))));
 
-  const [SelectedTag, setSelectedTag] = useState(pieceUniques);
+  const [SelectedPieces, setSelectedPieces] = useState(pieceUniques);
+  const [SelectedTag, setSelectedTag] = useState('All');
 
   const handleTagClick = (tag) => {
     if (tag === 'All') {
-      setSelectedTag(pieceUniques);
+      setSelectedPieces(pieceUniques);
+      setSelectedTag('All');
     } else {
       const filtered = pieceUniques.filter(piece => piece.tags.some(t => t.tag === tag));
-      setSelectedTag(filtered);
+      setSelectedPieces(filtered);
+      setSelectedTag(tag);
     }
   }
   console.log('Produits après filtrage :', SelectedTag);
@@ -21,14 +24,14 @@ export default function ProductsGrid( {pieceUniques} ) {
   return (
     pieceUniques.length > 0 ?
     <>
-      <nav className="flex gap-2 ">
-        <button onClick={() => handleTagClick('All')} className="cursor-pointer orange" key="All">Tout voir</button>
+      <nav className="flex lg:gap-5  gap-3 flex-wrap">
+        <button onClick={() => handleTagClick('All')} className={`cursor-pointer orange ${ SelectedTag === "All" ? `orange-underline` : ""}`} key="All">Tout voir</button>
         {tags.map (tag => (
-          <button onClick={() => handleTagClick(tag)} className="cursor-pointer orange capitalize" key={tag}>{tag}</button>
+          <button onClick={() => handleTagClick(tag)} className={`cursor-pointer orange capitalize ${tag === SelectedTag ? `orange-underline` : ""}`} key={tag}>{tag}</button>
         ))}
       </nav>
       <div className="  mt-[3em] grid lg:grid-cols-4 lg:gap-20 gap-4">
-        {SelectedTag.map(piece => (
+        {SelectedPieces.map(piece => (
           <div className="w-full " key={piece.id}>
             <ProductCart piece_unique={piece} />
           </div>

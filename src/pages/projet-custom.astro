@@ -10,22 +10,26 @@ const page = await getPage('projet-custom');
 
 ---
 <Layout>
-  <div class="fullscreen">
-    <div class="lg:mx-[5em] flex flex-col h-[100%] items-center">
-      <h1 class="mb-[1em] mt-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
-      <p class=" lg:w-[45%] text-center last-center">{page.content[0].texte}</p>
-      <div class="flex lg:flex-row flex-col mt-auto items-center">
-        <img src=`${OptimizeByCloudinary(page.content[1].photo.url)}` class="lg:max-w-[50%] my-[3em] lg:my-[0em]"/>
-        <span class="lg:w-[50%] flex flex-col items-center lg:ml-[5em] lg:pl-[5em] lg:pr-[8em]">
-          <h2 class="mb-[1em]">{page.content[1].titre}</h2>
-          <p class="break-words text-center last-center min-w-[300px]">{page.content[1].texte}</p>
-      </span>
-      </div>
+<div class="fullscreen">
+  <div class="lg:mx-[5em] flex flex-col h-[100%] items-center gap-[2em] lg:gap-[0em]">
+    <h1 class="lg:mt-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
+    <div class="flex lg:flex-row flex-col mt-auto items-center">
+      <img src=`${OptimizeByCloudinary(page.content[1].photo.url)}` class="lg:w-[50%] lg:mb-[0em] mb-[2em]"/>
+      <span class="lg:w-[50%] flex flex-col items-center lg:ml-[5em] lg:pl-[5em] lg:pr-[8em]">
+        <h2 class="mb-[1em]">{page.content[1].titre}</h2>
+        <p class="break-words text-center last-center">{page.content[1].texte}</p>
+    </span>
     </div>
   </div>
+</div>
+<div class="lg:mx-[5em] flex flex-col h-[100%] items-center">
+  <div class="flex justify-center my-[4em]">
+    <img src="/logo/MONOGRAMME_KRAZE.svg" alt="KRAZE Logo" class="lg:w-[8em] w-[5em] m-auto " />
+  </div>
+</div>
   <div class="lg:mx-[5em] items-center flex items-center justify-center flex-col">
-    <div class="  flex  flex-col items-center mt-[4em]  lg:w-[60%]">
-      <h1>FORMULAIRE DE CONTACT</h1>
+    <div class="  flex  flex-col items-center  lg:w-[60%]">
+      <h1 class="text-center">FORMULAIRE DE CONTACT</h1>
       <ContactForm client:load />
     </div>
   </div>
