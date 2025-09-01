@@ -8,6 +8,8 @@ import ProductsGrid from '../../components/ProductsGrid';
 const toutesLespieceUniques = await getPieceUniques();
 
 const pieceUniques = toutesLespieceUniques.filter(piece => (piece.stock - piece.reserve) > 0);
+const sorted = pieceUniques.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
 console.log("voila ce qu'il y a dans la vue", pieceUniques);
 ---
 
@@ -16,7 +18,7 @@ console.log("voila ce qu'il y a dans la vue", pieceUniques);
 
   <div class="fullscreen">
     <div class="">
-      <ProductsGrid client:load pieceUniques={pieceUniques} type="piece-unique" />
+      <ProductsGrid client:load pieceUniques={sorted} type="piece-unique" />
     </div>
 
   </div>

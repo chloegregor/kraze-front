@@ -5,7 +5,7 @@ export async function getPieceUniques() {
     endpoint: 'pieces-uniques',
     wrappedByKey: 'data',
     query: {
-      fields: ["titre", "description", "price", "stock", "reserve", "slug"],
+      fields: ["titre", "description", "price", "stock", "reserve", "slug", "createdAt"],
       populate:{
         photos: {
           fields: ['url']
