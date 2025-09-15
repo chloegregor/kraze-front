@@ -130,7 +130,7 @@
 
                     <div className=" lg:min-w-[28em] flex flex-col h-[100%] items-center justify-center">
 
-                        <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="lg:w-[430px] w-[250px] lg:h-[480px] h-[250px] object-contain" />
+                        <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="lg:w-[430px] w-[250px] lg:h-[480px] h-[250px] object-cover" />
 
 
                     </div>
