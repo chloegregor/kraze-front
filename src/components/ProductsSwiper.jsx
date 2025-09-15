@@ -37,6 +37,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
     return (
+      <>
 
       <Swiper
         modules={[EffectFade, Navigation, Pagination, Keyboard]}
@@ -80,13 +81,14 @@ import { MoveRight, MoveLeft } from 'lucide-react';
             </div>
           </SwiperSlide>
         ))}
-        <div className="swiper-button-prev">
-        <MoveLeft color="#8940f0" />
-        </div>
-        <div className="swiper-button-next">
-        <MoveRight color="#8940f0" />
-        </div>
 
       </Swiper>
+        <div className="swiper-button-prev" id="fleche-gauche2">
+        <MoveLeft color="#8940f0" />
+        </div>
+        <div className="swiper-button-next" id="fleche-droite2">
+        <MoveRight color="#8940f0" />
+        </div>
+      </>
     );
   }
