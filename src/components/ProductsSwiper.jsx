@@ -42,7 +42,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
       <Swiper
         modules={[EffectFade, Navigation, Pagination, Keyboard]}
         spaceBetween={50}
-        effect={'fade'}
+        effect={''}
         fadeEffect={{ crossFade: true }}
         slidesPerView={1}
         navigation= {{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}

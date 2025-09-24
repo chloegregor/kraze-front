@@ -12,12 +12,13 @@
   flex-direction: column;
   border: 1px solid #8940f0;
   height: 80%;
-  padding:1em
+  padding:1em;
+
 }
 
 .content img{
-  width: 430px;
-  height: 480px;
+  width: 455px;
+  height: 569px;
   object-fit: cover;
   align-self: center;
 }
@@ -54,24 +55,24 @@
 
 #fleche-gauche{
   position: absolute;
-  top: 95%;
+  top: 97%;
   left:47%
 }
 #fleche-droite{
   position: absolute;
-  top: 95%;
+  top: 97%;
   right: 47%;
 }
 
 #fleche-gauche2{
   position: absolute;
-  top: 60%;
-  left:30%
+  top: 50%;
+  left:-5%
 }
 #fleche-droite2{
   position: absolute;
-  top: 60%;
-  right: 30%;
+  top: 50%;
+  right: -5%;
 }
 
 @keyframes spin-once {
@@ -92,12 +93,12 @@
   .content {
     min-width: 0%;
     padding: 0.5em;
-    max-height:23em
+    max-height:29em
   }
   .content img {
 
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 375px;
   }
 
   #fleche-gauche{
@@ -111,11 +112,11 @@
 
   }
   #fleche-gauche2{
-    
-    left:40%
+    top: 105%;
+    left: 40%
   }
   #fleche-droite2{
-
+    top: 105%;
     right: 40%;
   }
 }
