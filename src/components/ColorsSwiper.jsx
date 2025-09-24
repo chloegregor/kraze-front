@@ -85,69 +85,72 @@
 
     return (
       <>
-        <div className="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
+        <div className="lg:flex lg:flex-col lg:justify-center">
+          <div className= "lg:h-[calc(100vh-13em)]">
+            <Swiper
+              modules={[EffectFade, Navigation, Pagination, Keyboard]}
+              spaceBetween={50}
+              effect={''}
+              fadeEffect={{ crossFade: true }}
+              slidesPerView={1}
+              navigation= {{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+              onInit={(swiper) => {
+                swiper.navigation.init();
+                swiper.navigation.update();
+              }}
+              keyboard={{ enabled: true }}
+              loop={true}
+              onSwiper ={(swiper) => {
+                swiperRef.current = swiper;
+              }
+              }
+              onSlideChange={(swiper) => {
+              const realIndex = swiper.realIndex;
+              const produitIndex = flatSlides[realIndex].produitIndex;
+              setSelectedIndex(produitIndex);
+              }}
+            >
 
-          <Swiper
-            modules={[EffectFade, Navigation, Pagination, Keyboard]}
-            spaceBetween={50}
-            effect={'fade'}
-            fadeEffect={{ crossFade: true }}
-            slidesPerView={1}
-            navigation= {{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
-            onInit={(swiper) => {
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
-            keyboard={{ enabled: true }}
-            loop={true}
-            onSwiper ={(swiper) => {
-              swiperRef.current = swiper;
-            }
-            }
-            onSlideChange={(swiper) => {
-            const realIndex = swiper.realIndex;
-            const produitIndex = flatSlides[realIndex].produitIndex;
-            setSelectedIndex(produitIndex);
-            }}
-          >
-
-            {flatSlides.map((produit) => (
-
-
-
-                <SwiperSlide key={produit.id}>
-                  <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    textAlign: 'center',
-                    marginBottom: '3em',
-
-                  }}>
+              {flatSlides.map((produit) => (
 
 
 
-                    <div className=" lg:min-w-[28em] flex flex-col h-[100%] items-center justify-center">
+                  <SwiperSlide key={produit.id}>
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      textAlign: 'center',
+                      marginBottom: '3em',
+                      height: '100%'
 
-                        <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="lg:w-[430px] w-[250px] lg:h-[480px] h-[250px] object-cover" />
+
+                    }}>
 
 
+
+                      <div className="  lg:min-w-[50em] flex flex-col h-[100%] items-center justify-center">
+
+                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="lg:w-[460px] w-[354px] lg:h-[575px] h-[453px] object-cover" />
+
+
+                      </div>
                     </div>
+                  </SwiperSlide>
+
+              ))}
+
+                  <div className="swiper-button-prev" id="fleche-gauche">
+                  <MoveLeft color="#8940f0" />
                   </div>
-                </SwiperSlide>
-
-            ))}
-
-                <div className="swiper-button-prev" id="fleche-gauche">
-                <MoveLeft color="#8940f0" />
-                </div>
-                <div className="swiper-button-next" id="fleche-droite">
-                <MoveRight color="#8940f0" />
-                </div>
+                  <div className="swiper-button-next" id="fleche-droite">
+                  <MoveRight color="#8940f0" />
+                  </div>
 
 
-          </Swiper>
+            </Swiper>
+          </div>
           <div className="flex flex-col mt-[1em]">
             <div className="flex justify-center">
               {couleurs.map((groupe, index) => (
