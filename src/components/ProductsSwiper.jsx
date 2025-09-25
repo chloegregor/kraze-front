@@ -63,6 +63,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
               alignItems: 'center',
               justifyContent: 'center',
               textAlign: 'center',
+              height: '100%'
 
             }}>
 

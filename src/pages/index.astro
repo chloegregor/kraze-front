@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+import {getPage} from '../lib/api/page.js';
+import OptimizeByCloudinary from '../lib/OptmizeByCloudinary.js';
+
+const page = await getPage('index')
+const photo = page.content[0].photo.url
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>KRAZE</title>
+	</head>
+	<body>
+    <div class=" min-h-screen w-[100%] flex">
+      <div class="w-[50%] h-auto ">
+        <img src={OptimizeByCloudinary(photo)}/>
+      </div>
+    </div>
+  </body>

@@ -61,24 +61,26 @@ import { MoveRight, MoveLeft } from 'lucide-react';
               alignItems: 'center',
               justifyContent: 'center',
               textAlign: 'center',
+              height: '100%'
+
 
             }}>
 
 
 
-              <div className="content">
+              <div className="flex flex-col h-[100%] items-center justify-center">
 
-                  <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} />
+                  <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className="w-[auto] h-[90%] object-fit-contain" />
                   <div className="detailsproduits m-2">
                   </div>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        <div className="swiper-button-prev">
+        <div className="swiper-button-prev" id="fleche-gauche">
         <MoveLeft color="#8940f0" />
         </div>
-        <div className="swiper-button-next">
+        <div className="swiper-button-next"id="fleche-droite">
         <MoveRight color="#8940f0" />
         </div>
 
