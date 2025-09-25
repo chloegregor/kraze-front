@@ -7,18 +7,17 @@
 }
 
 .content{
-  min-width: 28em;
+  height: 90%;
   display: flex;
   flex-direction: column;
   border: 1px solid #8940f0;
-  height: 80%;
-  padding:1em;
+  padding-top:1em;
 
 }
 
 .content img{
-  width: 455px;
-  height: 569px;
+  width: auto;
+  height: 100%;
   object-fit: cover;
   align-self: center;
 }
@@ -67,12 +66,11 @@
 #fleche-gauche2{
   position: absolute;
   top: 50%;
-  left:-5%
-}
+  left: 20%}
 #fleche-droite2{
   position: absolute;
   top: 50%;
-  right: -5%;
+  right: 20%;
 }
 
 @keyframes spin-once {

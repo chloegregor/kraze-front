@@ -45,7 +45,7 @@ console.log("Ajout au panier:", structuredData);
 <Layout>
     <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">{piece.titre.toUpperCase()}</h1>
     <div class="lg:h-[calc(100vh-13em)] lg:flex lg:flex-col lg:justify-center">
-      <div class="lg:w-[50em] w-[100%] m-auto">
+      <div class="relative h-[100%]">
         <PieceSwiper client:load piece={piece} />
       </div>
   </div>
