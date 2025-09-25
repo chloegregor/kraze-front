@@ -16,10 +16,11 @@ const photo = page.content[0].photo.url
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>KRAZE</title>
 	</head>
-	<body>
-    <div class=" min-h-screen w-[100%] flex">
-      <div class="w-[50%] h-auto ">
-        <img src={OptimizeByCloudinary(photo)}/>
+	<body id="enterpage" class="relative">
+    <img src="/logo/LOGO KRAZE.svg" class="absolute w-[50%] t-[50%]">
+    <div class=" h-screen w-[100%] flex justify-end fond">
+      <div class="lg:w-[70%] flex justify-end">
+        <img src={OptimizeByCloudinary(photo)} class="h-full w-auto"/>
       </div>
     </div>
   </body>
