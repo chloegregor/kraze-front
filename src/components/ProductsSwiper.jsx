@@ -69,7 +69,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
 
-                <a href={`produits/${produit.slug}`} className="swiper-link border">
+                <a href={`produits/${produit.slug}`} className="swiper-link border lg:w-[30%]">
                   <div className="content">
                     <img src={`${OptimizeByCloudinary(produit.produit_couleurs[0].photo[0].url)}`} alt={produit.name} className="" />
                     <div className="detailsproduits">
