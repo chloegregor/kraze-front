@@ -132,7 +132,7 @@
 
                       <div className="flex flex-col w-[100%] items-center justify-center">
 
-                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" w-[30%]  h-[100%] object-fit-contain" />
+                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" lg:w-[40%] w-[100%]  h-[100%] object-fit-contain" />
 
 
                       </div>
@@ -151,7 +151,7 @@
 
             </Swiper>
           </div>
-          <div className="flex flex-col mt-[1em]">
+          <div className="flex flex-col">
             <div className="flex justify-center">
               {couleurs.map((groupe, index) => (
                 <div key={index}

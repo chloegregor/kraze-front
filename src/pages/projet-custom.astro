@@ -11,8 +11,8 @@ const page = await getPage('projet-custom');
 ---
 <Layout>
 <div class="fullscreen">
-  <div class="lg:mx-[5em] flex flex-col h-[100%] items-center gap-[2em] lg:gap-[0em]">
-    <h1 class="lg:mt-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
+  <div class="lg:mx-[5em] flex flex-col h-[100%] items-center">
+    <h1 class="lg:mt-[2em] mb-[2em] lg:w-[45%] text-center">{page.content[0].titre}</h1>
     <div class="flex lg:flex-row flex-col mt-auto items-center">
       <img src=`${OptimizeByCloudinary(page.content[1].photo.url)}` class="lg:w-[50%] lg:mb-[0em] mb-[2em]"/>
       <span class="lg:w-[50%] flex flex-col items-center lg:ml-[5em] lg:pl-[5em] lg:pr-[8em]">
