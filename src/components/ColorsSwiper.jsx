@@ -86,7 +86,7 @@
     return (
       <>
         <div className="lg:flex lg:flex-col lg:justify-center">
-          <div className= "lg:h-[calc(100vh-13em)]">
+          <div className= "">
             <Swiper
               modules={[EffectFade, Navigation, Pagination, Keyboard]}
               spaceBetween={50}
@@ -130,9 +130,9 @@
 
 
 
-                      <div className="flex flex-col h-[100%] items-center justify-center">
+                      <div className="flex flex-col w-[100%] items-center justify-center">
 
-                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="w-[100%] lg:h-[90%] h-[100%] object-fit-contain" />
+                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" w-[30%]  h-[100%] object-fit-contain" />
 
 
                       </div>

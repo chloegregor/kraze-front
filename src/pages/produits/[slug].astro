@@ -46,12 +46,10 @@ export async function getStaticPaths() {
 
 ---
 <Layout>
-    <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">{produit.name.toUpperCase()}</h1>
-    <div class="">
-
+  <h1 class="lg:mt-[2em] mb-[2em] text-center">{produit.name.toUpperCase()}</h1>
+  <div class="">
     <ColorsSwiper client:load produits={produitCouleurs} description={produit.description} price={produit.price} slug={slug} />
-
-
+  </div>
   <div class="flex justify-center mt-[2em]">
     <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
       <div class="flex flex-col items-center">
