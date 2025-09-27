@@ -23,14 +23,10 @@
   padding: 0px
 }
 
-.fullscreen {
-  height: calc(100vh - 13em)
-}
+
 
 @media (min-width:600px){
-  .fullscreen{
-    min-height: calc(100vh - 8em);
-  }
+  
 }
 h1{
   font-size: 1.5em;
