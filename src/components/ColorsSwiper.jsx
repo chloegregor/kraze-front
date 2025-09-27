@@ -132,7 +132,7 @@
 
                       <div className="flex flex-col h-[100%] items-center justify-center">
 
-                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="w-[auto] lg:h-[90%] h-[100%] object-fit-contain" />
+                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className="w-[100%] lg:h-[90%] h-[100%] object-fit-contain" />
 
 
                       </div>
