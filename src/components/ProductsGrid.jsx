@@ -30,9 +30,9 @@ export default function ProductsGrid( {pieceUniques} ) {
           <button onClick={() => handleTagClick(tag)} className={`cursor-pointer orange capitalize ${tag === SelectedTag ? `orange-underline` : ""}`} key={tag}>{tag}</button>
         ))}
       </nav>
-      <div className="  mt-[3em] grid lg:grid-cols-4 lg:gap-20 gap-4">
+      <div className="  mt-[3em] grid lg:grid-cols-4 lg:gap-14 gap-4">
         {SelectedPieces.map(piece => (
-          <div className="w-full " key={piece.id}>
+          <div className="aspect-square" key={piece.id}>
             <ProductCart piece_unique={piece} />
           </div>
         ))}

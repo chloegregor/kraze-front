@@ -68,9 +68,9 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
 
-              <div className="flex flex-col h-[100%] items-center justify-center">
+              <div className="flex flex-col w-[100%] items-center justify-center">
 
-                  <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className="w-[100%] h-[90%] object-fit-contain" />
+                  <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className="lg:w-[40%] w-[100%] h-[100%] object-fit-contain" />
                   <div className="detailsproduits m-2">
                   </div>
               </div>
