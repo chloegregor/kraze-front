@@ -22,10 +22,11 @@ export default function AddButton({ product }) {
     >
       AJOUTER AU PANIER
     </button>
-
+     {text !== '' && (
     <p className='mt-[0.5em] text-[0.9em] h-[1.5em]'>
       {text}
     </p>
+  )}
     </>
   );
 }
