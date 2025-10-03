@@ -69,6 +69,7 @@ export  async function POST({ request }){
       customer_creation: 'always',
       success_url: `${import.meta.env.PUBLIC_ASTRO_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${import.meta.env.PUBLIC_ASTRO_URL}/panier`,
+      expires_at: Math.floor(Date.now() / 1000) + 2 * 60, // Session expires in 2 minutes
     });
 
     return new Response(JSON.stringify({ url: session.url }), {
