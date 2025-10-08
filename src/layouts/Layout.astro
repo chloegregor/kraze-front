@@ -4,10 +4,9 @@ import CartBadge from '../components/CartBadge';
 import ActiveLink from '../components/ActiveLink'
 
 const currentPath = Astro.url.pathname;
-console.log("Current path:", currentPath);
 const page = currentPath.split("/").at(-1)?.toUpperCase().split("-").join(" ");
 const titre = currentPath.includes('success') ? `KRAZE | MERCI` : `KRAZE | ${page}`;
-
+console.log("le titre est :", titre);
 ---
 
 <!doctype html>
@@ -18,7 +17,7 @@ const titre = currentPath.includes('success') ? `KRAZE | MERCI` : `KRAZE | ${pag
     <meta name="description" content="Kraze est une marque de borderie et de corseterie artisanale. Visitez notre boutique et découvrez nos corsets et nos bustiers !" />
 		<meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title> {titre}</title>
+		<title>{titre}</title>
 	</head>
 	<body>
 
