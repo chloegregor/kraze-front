@@ -4,17 +4,19 @@ import CartBadge from '../components/CartBadge';
 import ActiveLink from '../components/ActiveLink'
 
 const currentPath = Astro.url.pathname;
+const page = currentPath.split("/").at(-1)?.toUpperCase().split("-").join(" ");
+const titre = `KRAZE | ${page}`;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo/MONOGRAMME_KRAZE.svg"/>
+    <meta name="description" content="Kraze est une marque de borderie et de corseterie artisanale. Visitez notre boutique et découvrez nos corsets et nos bustiers !" />
 		<meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>KRAZE</title>
+		<title> {titre}</title>
 	</head>
 	<body>
 
@@ -24,7 +26,7 @@ const currentPath = Astro.url.pathname;
               <div class=" flex lg:h-[100%] lg:w-[30%] w-[65%] lg:gap-[10em] place-content-between lg:place-content-start">
                 <ActiveLink client:load href="/projet-custom" position="center" >
                 Custom</ActiveLink>
-                <ActiveLink client:load href="/pieces_uniques" position="center" >
+                <ActiveLink client:load href="/pieces-uniques" position="center" >
                 Pièces Uniques</ActiveLink>
               </div>
 
@@ -46,7 +48,7 @@ const currentPath = Astro.url.pathname;
       <footer>
         <div class="footer">
           <div class="h-[100%] flex place-content-between">
-            <a class:list={["self-end", currentPath === "/mentions-legales" ? "orange-underline" : undefined]}>Mentions légales</a>
+            <ActiveLink client:load href="/mentions-legales" position ="end">Mentions légales</ActiveLink>
 
             <ActiveLink client:load href="/a-propos" position="end" >
               À propos

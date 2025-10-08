@@ -3,7 +3,7 @@ import OptimizeByCloudinary from '../lib/OptmizeByCloudinary';
 
 export default function ProductCart({piece_unique}) {
   return (
-    <a href={`/pieces_uniques/${piece_unique.slug}`} className="">
+    <a href={`/pieces-uniques/${piece_unique.slug}`} className="">
       <div className="flex flex-col items-center violet-border p-[0.5em] h-[100%]">
 
           <img src={OptimizeByCloudinary(piece_unique.photos[0].url)} alt={piece_unique.titre} className="w-[100%] h-[90%] object-cover "/>

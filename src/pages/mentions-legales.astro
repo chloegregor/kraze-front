@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {getPage} from '../lib/api/page.js';
+const page= await getPage('mentions-legales');
+const page_content = page.content.slice(1);
+---
+<Layout>
+<div class="lg:mx-[5em] flex flex-col items-center">
+  <h1 class="lg:mt-[2em] mb-[2em] lg:w-[45%] text-center">{page.content[0].titre.toUpperCase()}</h1>
+  <div class="lg:w-[70%] flex flex-col mb-[5em]">
+    {page_content.map((section) => (
+      <div class="mb-[3em]">
+        <h2 class="mb-[1em]">{section.titre.toUpperCase()}</h2>
+        <p class="break-words justify-text">{section.texte}</p>
+      </div>
+    ))}
+</div>
+</Layout>
