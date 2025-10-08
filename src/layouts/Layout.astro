@@ -4,8 +4,10 @@ import CartBadge from '../components/CartBadge';
 import ActiveLink from '../components/ActiveLink'
 
 const currentPath = Astro.url.pathname;
+console.log("Current path:", currentPath);
 const page = currentPath.split("/").at(-1)?.toUpperCase().split("-").join(" ");
-const titre = `KRAZE | ${page}`;
+const titre = currentPath.includes('success') ? `KRAZE | MERCI` : `KRAZE | ${page}`;
+
 ---
 
 <!doctype html>
