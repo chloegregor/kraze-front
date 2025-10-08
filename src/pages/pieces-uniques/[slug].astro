@@ -42,12 +42,12 @@ console.log("Ajout au panier:", structuredData);
 
 ---
 
-<Layout>
+<Layout titre = `KRAZE | ${piece.titre.toUpperCase()}`>
     <h1 class="lg:mt-[2em] mb-[2em] text-center">{piece.titre.toUpperCase()}</h1>
     <div class="">
 
         <PieceSwiper client:load piece={piece} />
-      
+
   </div>
   <div class="flex justify-center mt-[1em]">
           <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">

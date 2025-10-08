@@ -10,10 +10,9 @@ const toutesLespieceUniques = await getPieceUniques();
 const pieceUniques = toutesLespieceUniques.filter(piece => (piece.stock - piece.reserve) > 0);
 const sorted = pieceUniques.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-console.log("voila ce qu'il y a dans la vue", pieceUniques);
 ---
 
-<Layout>
+<Layout titre=" KRAZE | Pièces uniques">
     <h1 class="lg:mt-[2em] lg:mb-[0em] mb-[2em] text-center">PIECES UNIQUES</h1>
 
   <div class="">
