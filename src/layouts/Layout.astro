@@ -19,20 +19,20 @@ const { titre = "KRAZE" } = Astro.props;
 	<body>
 
       <header>
-        <div class="header">
-          <div class="h-[100%] flex place-content-between">
+        <div class="header flex">
+          <a href="/corsets-et-bustiers" class="logo">
+            <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Logo" class="lg:w-[20em] w-[8em] " />
+          </a>
+          <div class="h-[60%] w-[100%] self-end flex place-content-between">
               <div class=" flex lg:h-[100%] lg:w-[30%] w-[65%] lg:gap-[10em] place-content-between lg:place-content-start">
-                <ActiveLink client:load href="/projet-custom" position="center" >
+                <ActiveLink client:load href="/projet-custom" position="top" >
                 Custom</ActiveLink>
-                <ActiveLink client:load href="/pieces-uniques" position="center" >
+                <ActiveLink client:load href="/pieces-uniques" position="top" >
                 Pièces Uniques</ActiveLink>
               </div>
 
-              <a href="/corsets-et-bustiers" class="logo">
-                <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Logo" class="lg:w-[20em] w-[8em] " />
-              </a>
               <div class="flex gap-1">
-                <ActiveLink client:load href="/panier" position="center">Panier</ActiveLink>
+                <ActiveLink client:load href="/panier" position="top">Panier</ActiveLink>
                 <CartBadge client:only />
 
               </div>
@@ -44,14 +44,16 @@ const { titre = "KRAZE" } = Astro.props;
         <slot />
       </main>
       <footer>
-        <div class="footer">
-          <div class="h-[100%] flex place-content-between">
+        <div class="footer flex flex-col place-content-between">
+          <div class="h-[60%] w-[100%] flex place-content-between">
+
             <ActiveLink client:load href="/mentions-legales" position ="end">Mentions légales</ActiveLink>
+
 
             <ActiveLink client:load href="/a-propos" position="end" >
               À propos
             </ActiveLink>
-        </div>
+          </div>
         </div>
       </footer>
 

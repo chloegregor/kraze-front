@@ -23,7 +23,7 @@ export default function CartBadge() {
 
 
   return (
-    <span className=" rounded-full px-2 py-1 text-xs self-center">
+    <span className=" px-2 py-1 text-xs">
       {count}
     </span>
   );
