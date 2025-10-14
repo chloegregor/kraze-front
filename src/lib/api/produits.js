@@ -24,10 +24,11 @@ export async function getProducts() {
             photo: {
               fields: ['url'],
             },
-          }
+          },
+          sort: ['createdAt:asc']
         }
       },
-
+      sort: ['createdAt:asc'],
     },
   });
   /*console.log('✅ Produits récupérés sur api :', produits);

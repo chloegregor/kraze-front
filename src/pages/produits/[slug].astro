@@ -10,7 +10,7 @@ const {slug} = Astro.params;
 
 const produit = await getProduct(slug);
 
-const produitCouleurs = produit.produit_couleurs;
+const produitCouleurs = produit.produit_couleurs.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
 
 const sizes = await fetchApi({
