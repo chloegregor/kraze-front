@@ -5,18 +5,6 @@ import {getPieceUniques} from '../lib/api/piece-uniques.js';
 
 export default function ProductsGrid( {pieceUniques} ) {
 
-  const [updatedPieceUniques, setUpdatedPieceUniques] = useState(pieceUniques);
-
-  useEffect(() => {
-    const fetchPieceUniques = async () => {
-      const pieces = await getPieceUniques();
-      console.log('Pièces uniques récupérées:', pieces);
-      setUpdatedPieceUniques(pieces);
-    };
-    fetchPieceUniques();
-  }, []);
-
-  pieceUniques = updatedPieceUniques;
 
   const tags = Array.from(new Set(pieceUniques.flatMap(piece => piece.tags.map(tag => tag.tag))));
 
