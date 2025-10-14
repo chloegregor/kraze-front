@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import {getProducts} from '../lib/./api/produits.js';
 import ProductsSwiper from '../components/ProductsSwiper.jsx';
 
-const produits = await getProducts();
+const tousproduits = await getProducts();
+const produits = tousproduits.filter(produit => produit.produit_couleurs.length > 0);
 console.log("voila ce qu'il,  y a dans la vue", produits);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
