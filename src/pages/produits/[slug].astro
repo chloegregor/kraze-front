@@ -35,9 +35,8 @@ const livraison = await fetchApi({
 
 
 export async function getStaticPaths() {
-  const produits = await getProducts();
-  const slugs = produits.map(produit => produit.slug);
-
+  const toutproduits = await getProducts();
+  const slugs = toutproduits.filter(produit => produit.produit_couleurs.length > 0).map(produit => produit.slug);
   return slugs.map(slug => ({
     params: {slug}
   }));
