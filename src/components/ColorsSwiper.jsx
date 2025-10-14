@@ -203,7 +203,7 @@
 
         <div className="flex justify-center mt-[1em]">
           <div className="lg:w-[50%] flex flex-col items-center gap-[2em]">
-            <p className=" text-center last-center">{description} Envie d’un corset unique, brodé, ou dans un coloris spécifique ? <a href="/projet-custom" className="underline underline-offset-4 ">Contactez-nous</a>, nous vous ferons un devis !</p>
+            <p className=" text-center last-center">{description}</p>
             <p className=" text-[1.6em]">{price} €</p>
 
             <div className="text-center">

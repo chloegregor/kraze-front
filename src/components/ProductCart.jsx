@@ -1,6 +1,7 @@
 import OptimizeByCloudinary from '../lib/OptmizeByCloudinary';
 
 
+
 export default function ProductCart({piece_unique}) {
   const isSoldOut = piece_unique.stock < 1;
   return (
