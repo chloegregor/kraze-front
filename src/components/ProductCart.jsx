@@ -11,7 +11,7 @@ export default function ProductCart({piece_unique}) {
 
         <div className="detailsproduits">
           <h3>{piece_unique.titre}</h3>
-          <span className="price">{piece_unique.price}€</span>
+          <span className="price">{isSoldOut? "Vendu !" :`${piece_unique.price}€`}</span>
         </div>
       </div>
     </a>

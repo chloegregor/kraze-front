@@ -57,7 +57,7 @@ console.log("Ajout au panier:", structuredData);
             {
               piece.stock - piece.reserve > 0
                 ? <AddButton client:load product={structuredData} />
-                :<p class="text-red-500">Cette pièce unique n'est plus disponible.</p>
+                :<p class="text-red-500">Cette pièce n'est plus disponible.</p>
 
             }
             <div class="text-center">
