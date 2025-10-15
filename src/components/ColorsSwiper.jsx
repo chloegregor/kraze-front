@@ -40,11 +40,10 @@
 
     const fetchProduits = async () => {
         const produit = await getSizesAndStock(slug);
-        console.log('Fetching produit pour slug :', slug);
 
         setProduitDynamique(produit.produit_couleurs);
-        console.log('Produit dynamique mis à jour:', produitDynamique);
       }
+
     useEffect(() => {
 
       fetchProduits();

@@ -17,7 +17,8 @@ export async function getSizesAndStock(slug) {
                 }
               }
             }
-          }
+          },
+          sort: ['createdAt:asc']
         },
 
       },
