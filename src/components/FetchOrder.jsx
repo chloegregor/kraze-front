@@ -19,8 +19,10 @@ export default function FetchOrder() {
 
     fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/stripe/session/${sessionId}`)
     .then (response => {
+      const text = response.text();
+      console.log('Response text:', text);
       if (!response.ok) {
-        console.error('Erreur lors de la récupération de la session Stripe:', response.statusText);
+        console.error('Erreur lors de la récupération de la session Stripe:', ${text});
         throw new Error('Erreur lors de la récupération de la session Stripe');
       }
       console.log('resonse;', response);
