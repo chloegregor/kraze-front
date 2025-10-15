@@ -54,14 +54,16 @@ export  async function POST({ request }){
         },
       quantity: item.quantity,
       })),
-      billing_address_collection: 'required',
       shipping_address_collection:{
         allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC'],
       },
       metadata:{
         items: JSON.stringify(validItems.map(item => ({
           documentId: item.documentId,
+          name: item.name,
+          taille: item.taille,
           quantity: item.quantity,
+          type: item.type
         }))),
       },
       customer_creation: 'always',

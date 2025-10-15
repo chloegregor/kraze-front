@@ -38,6 +38,7 @@ export default function FetchOrder() {
     if (!order) return <div>Loading...</div>;
 
     const items = JSON.parse(order.metadata.items)
+    console.log('Items dans la commande:', items);
 
 
   return (
