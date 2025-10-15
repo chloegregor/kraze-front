@@ -54,6 +54,7 @@ export  async function POST({ request }){
         },
       quantity: item.quantity,
       })),
+      billing_address_collection: 'required',
       shipping_address_collection:{
         allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC'],
       },
