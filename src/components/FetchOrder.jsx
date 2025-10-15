@@ -22,7 +22,7 @@ export default function FetchOrder() {
       const text = response.text();
       console.log('Response text:', text);
       if (!response.ok) {
-        console.error('Erreur lors de la récupération de la session Stripe:', ${text});
+        console.error(`Erreur lors de la récupération de la session Stripe:, ${text}`);
         throw new Error('Erreur lors de la récupération de la session Stripe');
       }
       console.log('resonse;', response);
