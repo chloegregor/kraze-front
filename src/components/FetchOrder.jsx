@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { clearCart } from '../lib/cart';
 
 export default function FetchOrder() {
+  console.log('FetchOrder component rendered');
 
   const [order, setOrder] = useState(null);
   const [errors, setErrors] = useState([]);
@@ -19,6 +20,7 @@ export default function FetchOrder() {
     fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/stripe/session/${sessionId}`)
     .then (response => {
       if (!response.ok) {
+        console.error('Erreur lors de la récupération de la session Stripe:', response.statusText);
         throw new Error('Erreur lors de la récupération de la session Stripe');
       }
       console.log('resonse;', response);
