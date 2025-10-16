@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { clearCart } from '../lib/cart';
+import { clearCart, getCart } from '../lib/cart';
 
 export default function FetchOrder() {
-  console.log('FetchOrder component rendered');
-
   const [order, setOrder] = useState(null);
   const [errors, setErrors] = useState([]);
 
+
   useEffect(() => {
+    const CartContent = getCart();
+
     clearCart();
     const params = new URLSearchParams(window.location.search);
     const sessionId = params.get('session_id');
@@ -40,8 +41,10 @@ export default function FetchOrder() {
     if (errors.length > 1) return <div>Error: {errors}</div>;
     if (!order) return <div>Loading...</div>;
 
-    const items = JSON.parse(order.metadata.items)
+    const items = CartContent
+    // JSON.parse(order.metadata.items)
     console.log('Items dans la commande:', items);
+
 
 
   return (
