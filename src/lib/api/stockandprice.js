@@ -88,7 +88,7 @@ export async function StockAndPrice(cart){
       quantity: item.quantity,
       price: isPieceUnique ? product.price : product.produit_couleur.produit.price,
       name: isPieceUnique ? product.titre : product.produit_couleur.nom,
-      taille: isPieceUnique ? item.taille : product.taille,
+      size: isPieceUnique ? item.size : product.taille,
       newReserve: product.reserve + item.quantity,
       type: isPieceUnique ? 'piece-unique' : 'produit',
 
