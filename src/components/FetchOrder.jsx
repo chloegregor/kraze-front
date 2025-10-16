@@ -4,10 +4,12 @@ import { clearCart, getCart } from '../lib/cart';
 export default function FetchOrder() {
   const [order, setOrder] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [CartContent, setCartContent] = useState([]);
 
 
   useEffect(() => {
     const CartContent = getCart();
+    setCartContent(CartContent);
 
     clearCart();
     const params = new URLSearchParams(window.location.search);
