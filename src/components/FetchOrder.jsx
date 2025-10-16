@@ -60,7 +60,7 @@ export default function FetchOrder() {
                       <div key={item.documentId} className="flex gap-[2em]">
                         <div className="flex gap-[1em]">
                           <span className="">
-                            {item.name} - {item.taille}
+                            {item.product} - {item.taille}
                           </span>
                         </div>
                         <div class="flex gap-[1em]">
