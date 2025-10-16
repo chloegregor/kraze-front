@@ -76,7 +76,7 @@ export default function ShowCart() {
                 <div key={item.documentId} className="flex gap-[2em] justify-between">
                   <div className="flex gap-[1em]">
                     <span className="">
-                      {item.product} - {item.size}
+                      {item.product}{item.size}
                     </span>
                     <span className="">{item.price} €</span>
                   </div>
