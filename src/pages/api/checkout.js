@@ -49,7 +49,7 @@ export  async function POST({ request }){
       price_data: {
         currency: 'eur',
         product_data:{
-          name: `${item.name} - ${item.size}`,
+          name: `${item.name} ${item.size}`,
         },
         unit_amount: Math.round(item.price * 100), // Stripe requires the amount in cents
         },

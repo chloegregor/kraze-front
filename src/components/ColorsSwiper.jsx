@@ -179,7 +179,7 @@
                     const structuredData ={
                       documentId: taillecliquée.documentId,
                       product: produitDynamique[selectedIndex].nom,
-                      size: taillecliquée.taille,
+                      size: `-${taillecliquée.taille}`,
                       price: price,
                       type: 'produit',
 
