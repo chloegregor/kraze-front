@@ -171,7 +171,7 @@
             <div className="flex justify-center">
               {symbols.map(symbol => {
                 const isAvailable = taillesdisponibles.some(size => size.taille === symbol);
-                const isClicked = chosenItem && chosenItem.size === symbol;
+                const isClicked = chosenItem && chosenItem.size === `-${symbol}`;
                 return(
                 <div key={symbol} onClick={() => {
                   const taillecliquée = taillesdisponibles.find(size => size.taille === symbol);
