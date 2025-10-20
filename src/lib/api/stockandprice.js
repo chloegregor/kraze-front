@@ -1,7 +1,5 @@
 import fetchApi from '../strapi.js';
 
-import {updateReserveProduct} from './updateReserve.js';
-
 export async function FetchProductStockAndPrice(documentId) {
   const productStockAndPrice = await fetchApi({
     endpoint: `produit-couleur-sizes/${documentId}`,
@@ -46,6 +44,7 @@ export async function StockAndPrice(cart){
   const validItems = [];
 
   for (const item of cart) {
+
     console.log('Processing item:', item);
     let product;
     let isPieceUnique = item.type === 'piece-unique';
@@ -57,9 +56,10 @@ export async function StockAndPrice(cart){
         ? (await FetchPieceStockAndPrice(item.documentId))[0]
 
         : await FetchProductStockAndPrice(item.documentId);
+
     }catch (error) {
       errors.push({
-        message: `Erreur lors de la récupération du produit avec l'ID ${item.documentId}.`,
+        message: `Erreur lors de la récupération du produit ${item.product}.`,
         item: item
       });
       continue;
@@ -67,18 +67,12 @@ export async function StockAndPrice(cart){
 
     if (!product) {
       errors.push({
-        message: `Le produit avec l'ID ${item.documentId} n'a pas été trouvé.`,
+        message: `le produit ${item.product} n'existe pas.`,
         item: item
       })
       continue;
     }
-    if ((product.stock - product.reserve) < item.quantity) {
-      errors.push({
-        message: `Le stock pour ${item.type === 'produit' ? `${product.produit_couleur.nom} (${product.taille})` :product.titre}  est insuffisant. Stock disponible: ${(product.stock - product.reserve)}.`,
-        item: item
-      })
-      continue;
-    }
+
     console.log('Stock suffisant pour l\'article:', item);
     console.log('Produit:', product);
 
@@ -89,7 +83,7 @@ export async function StockAndPrice(cart){
       price: isPieceUnique ? product.price : product.produit_couleur.produit.price,
       name: isPieceUnique ? product.titre : product.produit_couleur.nom,
       size: isPieceUnique ? item.size : product.taille,
-      newReserve: product.reserve + item.quantity,
+      reserve: item.quantity,
       type: isPieceUnique ? 'piece-unique' : 'produit',
 
     })
@@ -99,10 +93,6 @@ export async function StockAndPrice(cart){
 
   console.log('validItems:', validItems);
 
-
-  await Promise.all(
-    validItems.map(item => updateReserveProduct(item.documentId, item.newReserve, item.type))
-  );
 
 
   return {

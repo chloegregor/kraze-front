@@ -6,6 +6,7 @@ import {useEffect, useState} from 'react';
 export default function ShowCart() {
 
 
+
   const [cart, setCart] = useState(() => {
     const initialCart = getCart();
     return Array.isArray(initialCart) ? initialCart : [];
@@ -29,37 +30,36 @@ export default function ShowCart() {
 
   async function handleCheckout() {
     try{
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cart),
-    });
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cart),
+      });
 
-     let data;
+      const data = await response.json();
 
-    try {
-      data = await response.json(); // lire la réponse une seule fois, en JSON
-    } catch (err) {
-      // Si ce n’est pas du JSON, on peut afficher le texte brut
-      const raw = await response.text();
-      console.error('❌ Réponse non-JSON reçue :', raw);
-      setErrorMessage('Erreur serveur innatendue');
-      return;
-    }
 
-    if (response.ok && data.url) {
+      if (!response.ok) {
+        if (data.errors) {
+          // erreurs de validation / stock
+          setErrorMessage(data.errors.map(e => e.message).join(', '));
+        } else if (data.error) {
+          // erreur atomique ou Stripe
+          setErrorMessage(data.error);
+        }
+        return;
+      }
+
+
       window.location.href = data.url;
-    } else {
-      const errors = data.errors || [{message: data.message || 'verifiez votre panier'}];
-      setErrorMessage(errors.map(error => error.message).join(', '));
+    } catch (err) {
+      console.error('Network error during checkout:', err);
+      setErrorMessage('Erreur réseau lors du paiement.');
     }
-  } catch (err) {
-    console.error('Erreur réseau', err);
-    setErrorMessage('Erreur réseau lors du paiement.');
   }
-}
+
 
 
  return (
