@@ -15,7 +15,6 @@ export  async function POST({ request }){
   let validItems = [];
   let updatedItems = [];
   try {
-    console.log("Cart reçu dans /api/checkout:", request);
 
     const clientCart = await request.json();
 

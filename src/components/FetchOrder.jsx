@@ -33,7 +33,6 @@ export default function FetchOrder() {
     })
 
     .then (data => {
-      console.log('Session data:', data);
       setOrder(data)
 
     })
@@ -45,7 +44,6 @@ export default function FetchOrder() {
 
     const items = CartContent
     // JSON.parse(order.metadata.items)
-    console.log('Items dans la commande:', items);
 
 
 

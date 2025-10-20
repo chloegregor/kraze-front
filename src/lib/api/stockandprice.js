@@ -18,7 +18,6 @@ export async function FetchProductStockAndPrice(documentId) {
       }
     }
   })
-  console.log('✅ Produit récupéré sur api :', productStockAndPrice);
  return productStockAndPrice;
 }
 
@@ -51,15 +50,27 @@ export async function StockAndPrice(cart){
 
     try {
       console.log('Fetching product for item:', item.documentId);
-      product = isPieceUnique
+      switch (item.type) {
 
-        ? (await FetchPieceStockAndPrice(item.documentId))[0]
+        case 'produit':
+          product = await FetchProductStockAndPrice(item.documentId);
+          break;
+        case 'piece-unique':
+          product = (await FetchPieceStockAndPrice(item.documentId))[0];
+          break;
+        default:
+          errors.push({
+            message: `Type inconnu pour l'article ${item.product}.`,
+            item: item
+          });
 
-        : await FetchProductStockAndPrice(item.documentId);
+          continue;
+      }
+
 
     }catch (error) {
       errors.push({
-        message: `Erreur lors de la récupération du produit ${item.product}.`,
+        message: `Erreur lors de la récupération de l'article ${item.product}.`,
         item: item
       });
       continue;
@@ -67,7 +78,7 @@ export async function StockAndPrice(cart){
 
     if (!product) {
       errors.push({
-        message: `le produit ${item.product} n'existe pas.`,
+        message: `L'article ${item.product} n'existe plus.`,
         item: item
       })
       continue;

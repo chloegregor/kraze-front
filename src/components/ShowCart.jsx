@@ -80,7 +80,7 @@ export default function ShowCart() {
                     </span>
                     <span className="">{item.price} €</span>
                   </div>
-                  <div class="flex gap-[1em]">
+                  <div className="flex gap-[1em]">
                     <span className="w-[]">x {item.quantity}</span>
                     <button
                       onClick={() => addToCart(item)}
