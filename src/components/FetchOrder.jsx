@@ -43,7 +43,6 @@ export default function FetchOrder() {
     if (!order) return <div>Loading...</div>;
 
     const items = CartContent
-    // JSON.parse(order.metadata.items)
 
 
 

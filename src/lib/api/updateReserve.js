@@ -95,7 +95,7 @@ export async function incrementAll(items){
       for (const rollback of updatedItems){
         await cancelReserveProduct(rollback.documentId, rollback.quantity, rollback.type);
       }
-      throw new Error(`L'article ${item.name} n'est plus disponible.`)
+      throw new Error(`L'article ${item.name} n'est plus disponible. ${updatedItems.length ? 'Supprimez le du panier et réesayer.' : ''}`);
     }
   }
   return updatedItems;

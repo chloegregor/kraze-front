@@ -34,7 +34,7 @@ export async function FetchPieceStockAndPrice(documentId) {
       fields: ['documentId', 'stock', 'reserve', 'titre', 'price'],
     }
   })
-  console.log('✅ Piece unique récupérée sur api :', pieceStockAndPrice);
+  // console.log('✅ Piece unique récupérée sur api :', pieceStockAndPrice);
  return pieceStockAndPrice;
 }
 
@@ -44,7 +44,7 @@ export async function StockAndPrice(cart){
 
   for (const item of cart) {
 
-    console.log('Processing item:', item);
+    // console.log('Processing item:', item);
     let product;
     let isPieceUnique = item.type === 'piece-unique';
 
@@ -84,9 +84,6 @@ export async function StockAndPrice(cart){
       continue;
     }
 
-    console.log('Stock suffisant pour l\'article:', item);
-    console.log('Produit:', product);
-
 
     validItems.push({
       documentId: product.documentId,
@@ -102,7 +99,7 @@ export async function StockAndPrice(cart){
 
   }
 
-  console.log('validItems:', validItems);
+  // console.log('validItems:', validItems);
 
 
 

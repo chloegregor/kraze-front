@@ -4,9 +4,6 @@
   import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
   import {getSizesAndStock} from '../lib/api/sizesAndStock.js';
   import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
-
-
-
   import 'swiper/css';
   import 'swiper/css/effect-fade';
   import 'swiper/css/navigation';
@@ -17,7 +14,7 @@
 
 
   export default function ColorsSwiper({ produits, description, price, slug }) {
-      console.log('ColorsSwiper rendu avec slug:', slug);
+      // console.log('ColorsSwiper rendu avec slug:', slug);
     const swiperRef = useRef(null)
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -27,7 +24,7 @@
           produitId: produit.id
         }))
       )
-      console.log('Flat slides:', flatSlides);
+      // console.log('Flat slides:', flatSlides);
 
       const firstSlideOfProduct = [];
       flatSlides.forEach((slide, index) => {
@@ -66,7 +63,7 @@
     }, [selectedIndex]);
 
     useEffect(()=> {
-      console.log("dernier item choisi:", chosenItem);
+      // console.log("dernier item choisi:", chosenItem);
     },[chosenItem])
 
     const [isSpinning, setIsSpinning] = useState(false);

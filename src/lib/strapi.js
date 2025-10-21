@@ -11,7 +11,7 @@ export default async function fetchApi({
   }
 
   const queryString = qs.stringify(query, { encodeValuesOnly: true });
-  console.log('queryString', queryString);
+  // console.log('queryString', queryString);
 
 
   const url =

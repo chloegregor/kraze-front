@@ -1,6 +1,5 @@
 import ProductCart from './ProductCart.jsx';
 import {useState, useEffect} from 'react';
-import {getPieceUniques} from '../lib/api/piece-uniques.js';
 
 
 export default function ProductsGrid( {pieceUniques} ) {
