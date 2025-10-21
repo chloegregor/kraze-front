@@ -29,15 +29,13 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
     const [stockMinusReserve, setStockMinusReserve] = useState((piece.stock - piece.reserve));
     console.log('Stock minus reserve for piece', piece.slug, ':', stockMinusReserve);
+    const fetchStock = async () => {
+      const produit = await getPieceStock(piece.slug);
+      setStockMinusReserve(produit.stock - produit.reserve);
+    };
     useEffect(() => {
-      const fetchStock = async () => {
-        const produit = await getPieceStock(piece.slug);
-        setStockMinusReserve(produit.stock - produit.reserve);
-      };
       fetchStock();
-      console.log('Updated stock minus reserve for piece', piece.slug, ':', stockMinusReserve);
     }, []);
-
 
 
 
@@ -94,15 +92,15 @@ import { MoveRight, MoveLeft } from 'lucide-react';
         </div>
          <div className="flex justify-center mt-[1em]">
           <div className="lg:w-[50%] flex flex-col items-center gap-[2em]">
-            <div class="flex justify-center mt-[1em]">
-              <div class=" flex flex-col items-center gap-[2em]">
-                <p class=" text-center last-center">{piece.description}</p>
-                <p class=" text-[1.6em]">{piece.price} €</p>
+            <div className="flex justify-center mt-[1em]">
+              <div className=" flex flex-col items-center gap-[2em]">
+                <p className=" text-center last-center">{piece.description}</p>
+                <p className=" text-[1.6em]">{piece.price} €</p>
 
                 {
-                  piece.stock - piece.reserve > 0
+                  stockMinusReserve > 0
                   ? <AddButton client:load product={structuredData} />
-                  :<p class="text-red-500">Cette pièce n'est plus disponible.</p>
+                  :<p className="text-red-500">Cette pièce n'est plus disponible.</p>
                 }
               </div>
             </div>
