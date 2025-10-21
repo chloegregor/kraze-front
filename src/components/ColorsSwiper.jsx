@@ -1,7 +1,8 @@
 // ProductCarousel.jsx
   import { useRef, useState, useEffect } from 'react';
   import { Swiper, SwiperSlide } from 'swiper/react';
-  import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
+  import { EffectFade, Navigation, Pagination, Keyboard, Zoom } from 'swiper/modules';
+  import 'swiper/css/zoom';
   import {getSizesAndStock} from '../lib/api/sizesAndStock.js';
   import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
   import 'swiper/css';
@@ -84,7 +85,8 @@
         <div className="lg:flex lg:flex-col lg:justify-center">
           <div className= "">
             <Swiper
-              modules={[EffectFade, Navigation, Pagination, Keyboard]}
+              modules={[EffectFade, Navigation, Pagination, Keyboard, Zoom]}
+              zoom={true}
               spaceBetween={50}
               effect={''}
               fadeEffect={{ crossFade: true }}
@@ -119,14 +121,15 @@
                       justifyContent: 'center',
                       textAlign: 'center',
                       marginBottom: '3em',
-                      height: '100%'
+                      height: '100%',
+                      overflow: 'hidden',
 
 
                     }}>
 
 
 
-                      <div className="flex flex-col w-[100%] items-center justify-center">
+                      <div className="swiper-zoom-container flex flex-col w-[100%] items-center justify-center">
 
                           <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" lg:w-[40%] w-[100%]  h-[100%] object-fit-contain" />
 

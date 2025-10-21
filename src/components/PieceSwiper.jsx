@@ -73,6 +73,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
               textAlign: 'center',
               height: '100%',
               marginBottom: '3em',
+              overflow: 'hidden',
 
 
             }}>
