@@ -3,8 +3,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
 import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
-import {useState, useEffect} from 'react';
-import {getProducts} from '../lib/api/produits.js';
+
 
 
 import 'swiper/css';

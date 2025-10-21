@@ -1,7 +1,9 @@
 
 // ProductCarousel.jsx
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
+import { EffectFade, Navigation, Pagination, Keyboard, Zoom } from 'swiper/modules';
+import 'swiper/css/zoom';
+
 import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
 import {useState, useEffect} from 'react';
 import {getPieceStock} from '../lib/api/sizesAndStock.js';
@@ -46,9 +48,9 @@ import { MoveRight, MoveLeft } from 'lucide-react';
       <>
 
       <Swiper
-        modules={[EffectFade, Navigation, Pagination, Keyboard]}
+        modules={[EffectFade, Navigation, Pagination, Keyboard, Zoom]}
+        zoom={true}
         spaceBetween={50}
-        effect={'fade'}
         fadeEffect={{ crossFade: true }}
         slidesPerView={1}
         navigation= {{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
@@ -77,7 +79,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
 
-              <div className="flex flex-col w-[100%] items-center justify-center">
+              <div className="swiper-zoom-container flex flex-col w-[100%] items-center justify-center">
 
                   <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className="lg:w-[40%] w-[100%] h-[100%] object-fit-contain" />
 
