@@ -43,6 +43,7 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
     return (
+      <>
 
       <Swiper
         modules={[EffectFade, Navigation, Pagination, Keyboard]}
@@ -90,22 +91,23 @@ import { MoveRight, MoveLeft } from 'lucide-react';
         <div className="swiper-button-next"id="fleche-droite">
         <MoveRight color="#8940f0" />
         </div>
-         <div className="flex justify-center mt-[1em]">
-          <div className="lg:w-[50%] flex flex-col items-center gap-[2em]">
-            <div className="flex justify-center mt-[1em]">
-              <div className=" flex flex-col items-center gap-[2em]">
-                <p className=" text-center last-center">{piece.description}</p>
-                <p className=" text-[1.6em]">{piece.price} €</p>
+      </Swiper>
+        <div className="flex justify-center mt-[1em]">
+        <div className="lg:w-[50%] flex flex-col items-center gap-[2em]">
+          <div className="flex justify-center mt-[1em]">
+            <div className=" flex flex-col items-center gap-[2em]">
+              <p className=" text-center last-center">{piece.description}</p>
+              <p className=" text-[1.6em]">{piece.price} €</p>
 
-                {
-                  stockMinusReserve > 0
-                  ? <AddButton client:load product={structuredData} />
-                  :<p className="text-red-500">Cette pièce n'est plus disponible.</p>
-                }
-              </div>
+              {
+                stockMinusReserve > 0
+                ? <AddButton client:load product={structuredData} />
+                :<p className="text-red-500">Cette pièce n'est plus disponible.</p>
+              }
             </div>
           </div>
         </div>
-      </Swiper>
+      </div>
+      </>
     );
   }

@@ -14,9 +14,8 @@ export default function ProductCart({piece_unique}) {
   useEffect(() => {
     fetchStock();
   }, []);
-
   const isSoldOut = stock < 1;
-  
+
   return (
     <a href={`/pieces-uniques/${piece_unique.slug}`} className="">
       <div className="flex flex-col items-center violet-border p-[0.5em] h-[100%]">
