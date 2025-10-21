@@ -28,12 +28,12 @@ export async function getSizesAndStock(slug) {
   return produit;
 }
 
-export async function getPieceSizeAndStock(slug) {
+export async function getPieceStock(slug) {
   const piece = await fetchApi({
-    endpoint: `piece_uniques/${slug}`,
+    endpoint: `pieces-uniques/${slug}`,
     wrappedByKey: 'data',
     query: {
-      fields: ['titre', 'stock', 'reserve'],
+      fields: ['stock', 'reserve'],
     }
   });
   /*console.log('✅ Piece unique récupérée sur api :', piece);*/

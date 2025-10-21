@@ -46,26 +46,17 @@ console.log("Ajout au panier:", structuredData);
     <h1 class="lg:mt-[2em] mb-[2em] text-center">{piece.titre.toUpperCase()}</h1>
     <div>
 
-        <PieceSwiper client:load piece={piece} />
+      <PieceSwiper client:load piece={piece}/>
 
-  </div>
-  <div class="flex justify-center mt-[1em]">
-          <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
-            <p class=" text-center last-center">{piece.description}
-            <p class=" text-[1.6em]">{piece.price} €</p>
-
-            {
-              piece.stock - piece.reserve > 0
-                ? <AddButton client:load product={structuredData} />
-                :<p class="text-red-500">Cette pièce n'est plus disponible.</p>
-
-            }
-            <div class="text-center">
+    </div>
+    <div class="flex justify-center mt-[1em]">
+      <div class="lg:w-[50%] flex flex-col items-center gap-[2em]">
+        <div class="text-center">
           <DrawerText client:load title="LIVRAISON">
             <p class="last-center">{livraison.policy}</p>
           </DrawerText>
-          </div>
-          </div>
         </div>
+      </div>
+    </div>
 
 </Layout>

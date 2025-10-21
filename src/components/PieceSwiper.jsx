@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Navigation, Pagination, Keyboard } from 'swiper/modules';
 import OptimizeByCloudinary from '../lib/OptmizeByCloudinary'
 import {useState, useEffect} from 'react';
+import {getPieceStock} from '../lib/api/sizesAndStock.js';
+import AddButton from './AddButton';
 
 
 import 'swiper/css';
@@ -13,23 +15,30 @@ import 'swiper/css/pagination';
 import { MoveRight, MoveLeft } from 'lucide-react';
 
 
-  export default function ProductsSwiper({ piece }) {
+  export default function ProductsSwiper( {piece} ) {
 
+  const structuredData = {
+  documentId: piece.documentId,
+  product: piece.titre.toUpperCase(),
+  size: "",
+  price: piece.price,
+  type: 'piece-unique',
 
-{
-  /*
-    const [produitsDynamiques, setProduitsDynamiques] = useState(produits);
-
-    useEffect(() => {
-      const fetchProduct = async () => {
-        const produits = await getProducts();
-        console.log('Produits récupérés:', produits);
-        setProduitsDynamiques(produits);
-      };
-      fetchProduct();
-    }, []);
-*/
 }
+
+
+    const [stockMinusReserve, setStockMinusReserve] = useState((piece.stock - piece.reserve));
+    console.log('Stock minus reserve for piece', piece.slug, ':', stockMinusReserve);
+    useEffect(() => {
+      const fetchStock = async () => {
+        const produit = await getPieceStock(piece.slug);
+        setStockMinusReserve(produit.stock - produit.reserve);
+      };
+      fetchStock();
+      console.log('Updated stock minus reserve for piece', piece.slug, ':', stockMinusReserve);
+    }, []);
+
+
 
 
 
@@ -83,7 +92,22 @@ import { MoveRight, MoveLeft } from 'lucide-react';
         <div className="swiper-button-next"id="fleche-droite">
         <MoveRight color="#8940f0" />
         </div>
+         <div className="flex justify-center mt-[1em]">
+          <div className="lg:w-[50%] flex flex-col items-center gap-[2em]">
+            <div class="flex justify-center mt-[1em]">
+              <div class=" flex flex-col items-center gap-[2em]">
+                <p class=" text-center last-center">{piece.description}</p>
+                <p class=" text-[1.6em]">{piece.price} €</p>
 
+                {
+                  piece.stock - piece.reserve > 0
+                  ? <AddButton client:load product={structuredData} />
+                  :<p class="text-red-500">Cette pièce n'est plus disponible.</p>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
       </Swiper>
     );
   }
