@@ -43,6 +43,7 @@ export default function FetchOrder() {
     if (!order) return <div>Loading...</div>;
 
     const items = CartContent
+    console.log('Order fetched:', order);
 
 
 

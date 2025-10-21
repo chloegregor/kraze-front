@@ -11,7 +11,7 @@ export default function AddButton({ product }) {
 
       onClick= {() =>{
         if (product){
-          console.log('Adding product to cart:', product);
+          // console.log('Adding product to cart:', product);
           addToCart(product)
           setText('Produit ajouté au panier !')
         } else {
