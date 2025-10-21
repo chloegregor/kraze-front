@@ -79,11 +79,12 @@ import { MoveRight, MoveLeft } from 'lucide-react';
             }}>
 
 
+              <div className="lg:w-[40%] w-[100%] overflow-hidden">
+                <div className="swiper-zoom-container flex flex-col w-[100%] items-center justify-center">
 
-              <div className="swiper-zoom-container flex flex-col w-[100%] items-center justify-center">
+                    <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className=" w-[100%] h-[100%] object-fit-contain" />
 
-                  <img src={`${OptimizeByCloudinary(pp.url)}`} alt={piece.titre} className="lg:w-[40%] w-[100%] h-[100%] object-fit-contain" />
-
+                </div>
               </div>
             </div>
           </SwiperSlide>

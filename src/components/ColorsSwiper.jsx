@@ -122,19 +122,19 @@
                       textAlign: 'center',
                       marginBottom: '3em',
                       height: '100%',
-                      overflow: 'hidden',
 
 
                     }}>
 
 
-
+                    <div className="lg:w-[40%] w-[100%] overflow-hidden">
                       <div className="swiper-zoom-container flex flex-col w-[100%] items-center justify-center">
 
-                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" lg:w-[40%] w-[100%]  h-[100%] object-fit-contain" />
+                          <img src={`${OptimizeByCloudinary(produit.url)}`} alt={produit.name} className=" w-[100%]  h-[100%] object-fit-contain" />
 
 
                       </div>
+                    </div>
                     </div>
                   </SwiperSlide>
 
