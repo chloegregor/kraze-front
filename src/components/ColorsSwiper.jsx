@@ -140,10 +140,10 @@
 
               ))}
 
-                  <div className="swiper-button-prev" id="fleche-gauche">
+                  <div className="swiper-button-prev" id="fleche-gauche" arial-label="Passer à l'image précédente">
                   <MoveLeft color="#8940f0" />
                   </div>
-                  <div className="swiper-button-next" id="fleche-droite">
+                  <div className="swiper-button-next" id="fleche-droite" arial-label="Passer à l'image suivante">
                   <MoveRight color="#8940f0" />
                   </div>
 

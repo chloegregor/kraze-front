@@ -82,10 +82,10 @@ import { MoveRight, MoveLeft } from 'lucide-react';
         ))}
 
       </Swiper>
-        <div className="swiper-button-prev" id="fleche-gauche2">
+        <div className="swiper-button-prev" id="fleche-gauche2" aria-label="Passer à l'article précédent">
         <MoveLeft color="#8940f0" />
         </div>
-        <div className="swiper-button-next" id="fleche-droite2">
+        <div className="swiper-button-next" id="fleche-droite2" aria-label="Passer à l'article suivant">
         <MoveRight color="#8940f0" />
         </div>
       </>
