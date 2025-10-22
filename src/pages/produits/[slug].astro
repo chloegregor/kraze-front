@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 
 
 ---
-<Layout titre=`KRAZE | ${produit.name.toUpperCase()} | Cosets et Bustiers | Détails du produit` description=`Découvrez ${produit.name.toUpperCase()}, pièce de corseterie orignale fabriquée par Kraze. Explorez les coloris disponibles, les tailles et le guide d'entretien.`>
+<Layout titre=`KRAZE |${produit.name.toUpperCase()}|Cosets et Bustiers|Détails du produit` description=`Découvrez ${produit.name.toUpperCase()}, pièce de corseterie orignale fabriquée par Kraze. Explorez les coloris disponibles, les tailles et le guide d'entretien.`>
   <h1 class="lg:mt-[2em] mb-[2em] text-center">{produit.name.toUpperCase()}</h1>
   <div class="">
     <ColorsSwiper client:load produits={produitCouleurs} description={produit.description} price={produit.price} slug={slug} />

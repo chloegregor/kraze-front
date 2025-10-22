@@ -30,7 +30,6 @@ import { MoveRight, MoveLeft } from 'lucide-react';
 
 
     const [stockMinusReserve, setStockMinusReserve] = useState((piece.stock - piece.reserve));
-    console.log('Stock minus reserve for piece', piece.slug, ':', stockMinusReserve);
     const fetchStock = async () => {
       const produit = await getPieceStock(piece.slug);
       setStockMinusReserve(produit.stock - produit.reserve);
