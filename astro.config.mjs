@@ -10,7 +10,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), sitemap({
-    filter: (page) => page !== '/panier' && page !== '/success'
+    filter: (page) => page !== '/panier/' && page !== '/success/'
   })],
   vite: {
     plugins: [tailwindcss()]
