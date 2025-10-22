@@ -1,0 +1,10 @@
+# Autoriser tous les robots sauf certaines pages sensibles
+User-agent: *
+Disallow: /panier/
+Disallow: /success/
+
+# Laisser Google et les autres moteurs indexer le reste
+Allow: /
+
+# Indiquer l'emplacement de ton sitemap
+Sitemap: https://www.kraze.fr/sitemap-index.xml
