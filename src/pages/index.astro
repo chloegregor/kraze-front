@@ -7,24 +7,31 @@ const page = await getPage('index')
 const photo = page.content[0].photo.url
 ---
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/logo/MONOGRAMME_KRAZE.svg"/>
+    <meta name="description" content="Kraze propose des corsets et bustiers faits main. Visitez notre boutique et découvrez nos créations originales !" />
 		<meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>KRAZE</title>
+		<title>KRAZE | Corseterie</title>
 	</head>
 	<body id="enterpage" class="lg:relative">
-    <div class=" h-screen w-[100%] flex justify-end fond">
-      <div class="lg:w-[42%] flex flex-col justify-end">
-        <div class="relative sm:static">
-          <img src={OptimizeByCloudinary(photo)} class="h-[100%] w-[100%]"/>
-          <a href="/corsets-et-bustiers" class="absolute w-[50%] lg:top-[50%] top-[-8%] left-[50%] translate-x-[-50%] lg:translate-y-[-50%] z-100 text-center">
-            <img src="/logo/LOGO KRAZE.svg">
-            <h1 class="orange">ENTRER</h1>
-          </a>
+    <main>
+      <div class=" h-screen w-[100%] flex justify-end fond">
+        <div class="lg:w-[42%] flex flex-col justify-end">
+          <div class="relative sm:static">
+            <img src={OptimizeByCloudinary(photo)} class="h-[100%] w-[100%]" alt="KRAZE Corsets et Bustiers"/>
+            <a href="/corsets-et-bustiers" class="absolute w-[50%] lg:top-[50%] top-[-8%] left-[50%] translate-x-[-50%] lg:translate-y-[-50%] z-100 text-center">
+              <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Corseterie Logo">
+              <div class="flex gap-2 justify-center lg:mb-[1em]">
+                <h1 class="tagline">Corsets & Bustiers</h1>
+
+              </div>
+              <button id="enterbutton" class="orange">ENTRER</button>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
