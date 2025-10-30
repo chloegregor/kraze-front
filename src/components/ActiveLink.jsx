@@ -19,10 +19,10 @@ export default function ActiveLink({ href, children, position}) {
       positionClass = 'self-end';
     }
 
-  const className  = `${positionClass} ${isActive ? 'orange-underline' : ''}`.trim();
+  const className  = `${positionClass} ${isActive ? 'orange-underline' : ''} min-w-max`.trim();
 
   return (
-     <a href={href} className={className}>{ children}</a>
+     <a href={href} className={className }>{ children}</a>
 
   )
 

@@ -7,6 +7,7 @@ const { titre } = Astro.props;
 const { description } = Astro.props;
 const url = Astro.url.pathname
 const canonicalUrl = `https://www.kraze.fr${url}`;
+
 ---
 
 <!doctype html>
@@ -20,27 +21,36 @@ const canonicalUrl = `https://www.kraze.fr${url}`;
 		<meta name="generator" content={Astro.generator} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
-	<body>
-
+  	<body>
       <header>
-        <div class="header flex">
+        <div class="header flex flex-col lg:flex-row">
           <a href="/corsets-et-bustiers" class="logo">
             <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Corsets Logo" class="lg:w-[20em] w-[8em] " />
           </a>
-          <div class="h-[60%] w-[100%] self-end flex place-content-between">
-              <div class=" flex lg:h-[100%] lg:w-[30%] w-[65%] lg:gap-[10em] place-content-between lg:place-content-start">
+          <div class="h-[60%] w-[100%] lg:self-end  justify-end flex lg:place-content-between mt-[10px] mb-[10px] lg:m-[0px]">
+             <div class=" flex lg:h-[100%] lg:w-[40%] lg:gap-[3em] place-content-between lg:place-content-start hidden lg:flex">
                 <ActiveLink client:load href="/projet-custom" position="top" >
                 Custom</ActiveLink>
                 <ActiveLink client:load href="/pieces-uniques" position="top" >
                 Pièces Uniques</ActiveLink>
+                <ActiveLink client:load href="/corsets-et-bustiers" position="top" >
+                Corsets & Bustiers</ActiveLink>
               </div>
+            <div class="flex gap-1 ">
+              <ActiveLink client:load href="/panier" position="top">Panier</ActiveLink>
+              <CartBadge client:only />
 
-              <div class="flex gap-1">
-                <ActiveLink client:load href="/panier" position="top">Panier</ActiveLink>
-                <CartBadge client:only />
+            </div>
 
-              </div>
           </div>
+           <div class=" lg:hidden flex h-[100%] w-[100%] gap-[1em] place-content-between lg:place-content-start">
+                <ActiveLink client:load href="/projet-custom" position="top" >
+                Custom</ActiveLink>
+                <ActiveLink client:load href="/pieces-uniques" position="top" >
+                Pièces Uniques</ActiveLink>
+                <ActiveLink client:load href="/corsets-et-bustiers" position="top" >
+                Corsets</ActiveLink>
+              </div>
         </div>
       </header>
 
