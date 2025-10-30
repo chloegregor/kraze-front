@@ -16,7 +16,7 @@ const produits = tousproduits.filter(produit => produit.produit_couleurs.length 
   <h1 class="lg:mt-[2em] mb-[2em] text-center">CORSETS & BUSTIERS</h1>
   <div class="lg:flex lg:flex-col lg:justify-center lg:content-center">
       <div class="relative h-[100%] ">
-        <ProductsSwiper client:load produits={produits} />
+        <ProductsSwiper client:idle  produits={produits} />
       </div>
   </div>
   <div class="containeer lg:w-[28em] m-auto text-center">

@@ -13,7 +13,7 @@ const page = await getPage('a-propos');
   <div class="lg:mx-[5em] flex flex-col h-[100%] items-center">
     <h1 class="lg:mt-[2em] mb-[2em] lg:w-[45%] text-center">{page.content[0].titre.toUpperCase()}</h1>
     <div class="flex lg:flex-row flex-col mt-auto items-center w-[100%]">
-      <img src=`${OptimizeByCloudinary(page.content[1].photo.url)}` class="lg:w-[50%] lg:mb-[0em] mb-[2em]"/>
+      <img src= {OptimizeByCloudinary(page.content[1].photo.url)} loading="eager" class="lg:w-[50%] lg:mb-[0em] mb-[2em]"/>
       <span class="lg:w-[50%] flex flex-col items-center lg:ml-[5em] lg:pl-[5em] lg:pr-[8em]">
         <h2 class="mb-[1em]">{page.content[1].titre.toUpperCase()}</h2>
         <p class="break-words text-center last-center">{page.content[1].texte}</p>
@@ -30,7 +30,7 @@ const page = await getPage('a-propos');
       <h2 class="mb-[1em]">{page.content[2].titre.toUpperCase()}</h2>
       <p class="break-words text-center last-center">{page.content[2].texte}</p>
   </span>
-    <img src=`${OptimizeByCloudinary(page.content[2].photo.url)}` class="lg:w-[50%] my-[2em] lg:my-[0em]"/>
+    <img src={OptimizeByCloudinary(page.content[2].photo.url)} class="lg:w-[50%] my-[2em] lg:my-[0em]"/>
 </div>
 <div class="flex justify-center lg:mt-[8em] mt-[3em] w-[100%]">
 </div>
