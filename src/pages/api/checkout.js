@@ -75,6 +75,7 @@ export  async function POST({ request }){
         shipping_address_collection:{
           allowed_countries: ['FR', 'BE', 'CH', 'LU', 'MC'],
         },
+        phone_number_collection:{ enabled: true },
         metadata:{
           items: JSON.stringify(validItems.map(item => ({
             documentId: item.documentId,
