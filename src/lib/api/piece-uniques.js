@@ -6,6 +6,8 @@ export async function getPieceUniques() {
     wrappedByKey: 'data',
     query: {
       fields: ["titre", "description", "price", "stock", "reserve", "slug", "createdAt"],
+      pagination: { pageSize: 50},
+      sort: ['createdAt:desc'],
       populate:{
         photos: {
           fields: ['url']
@@ -17,8 +19,9 @@ export async function getPieceUniques() {
       }
 
   }});
-  /*console.log('✅ Produits récupérés sur api :', produits);
-  console.log(JSON.stringify(produits, null, 2)); // 👈 ici !*/
+  console.log('✅ Produits récupérés sur api :', piece_uniques);
+
+  console.log(JSON.stringify(piece_uniques, null, 2)); // 👈 ici !
   return piece_uniques;
 
 }
