@@ -16,7 +16,9 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+  edgeMiddleware: true, // ← ajoute ça
+  }),
   site: 'https://www.kraze.fr',
 
 });
