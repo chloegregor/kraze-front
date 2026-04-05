@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import {getPage} from '../lib/api/page.js';
+import OptimizeByCloudinary from '../lib/OptmizeByCloudinary.js';
+
+const page = await getPage('index')
+const photo = page.content[0].photo.url
+---
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/logo/MONOGRAMME_KRAZE.svg"/>
+    <meta name="description" content="Kraze est un marque de corsets et bustiers fabriqués à la main par Jeanne Zipper. Visitez notre boutique et découvrez nos créations originales !" />
+		<meta name="generator" content={Astro.generator} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>KRAZE</title>
+	</head>
+	<body class="lg:relative">
+    <main id="enterpage">
+      <div class=" h-screen w-[100%] flex justify-end fond">
+        <div class="lg:w-[42%] flex flex-col justify-end">
+          <div class="relative sm:static">
+            <img src={OptimizeByCloudinary(photo)} class="h-[100%] w-[100%]" alt="KRAZE Corsets et Bustiers"/>
+            <div class="absolute w-[50%] lg:top-[50%] top-[-8%] left-[50%] translate-x-[-50%] lg:translate-y-[-50%] z-100 text-center">
+              <img src="/logo/LOGO KRAZE.svg" alt="KRAZE Corseterie Logo">
+              <div class="flex gap-2 justify-center lg:mb-[1em]">
+                <h1 class="tagline">Corsets & Bustiers</h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
