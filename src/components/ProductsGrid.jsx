@@ -4,8 +4,7 @@ import {useState, useEffect} from 'react';
 
 export default function ProductsGrid( {pieceUniques} ) {
 
-  console.log('Produits reçus :', pieceUniques);
-  
+
   const tags = Array.from(new Set(pieceUniques.flatMap(piece => piece.tags.map(tag => tag.tag))));
 
   const [SelectedPieces, setSelectedPieces] = useState(pieceUniques);
@@ -21,7 +20,6 @@ export default function ProductsGrid( {pieceUniques} ) {
       setSelectedTag(tag);
     }
   }
-  console.log('Produits après filtrage :', SelectedTag);
 
   return (
     pieceUniques.length > 0 ?

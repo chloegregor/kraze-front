@@ -10,7 +10,6 @@ export default function FetchOrder() {
   useEffect(() => {
     const CartContent = getCart();
     setCartContent(CartContent);
-    console.log('CartContent in FetchOrder:', CartContent);
 
     clearCart();
     const params = new URLSearchParams(window.location.search);
@@ -44,7 +43,6 @@ export default function FetchOrder() {
     if (!order) return <div>Loading...</div>;
 
     const items = CartContent
-    console.log('items:', items);
 
 
 

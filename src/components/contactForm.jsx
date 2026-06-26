@@ -27,7 +27,6 @@ export default function ContactForm() {
   const handleSubmit =async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    console.log('LOG formData', formData);
     await fetch(`/api/sendMessage`, {
       method: 'POST',
       body: formData,
